@@ -30,13 +30,48 @@ class Checker:
         if os.path.exists("../Fpool") == False:
             os.mkdir("../Fpool")
 
+    def InputRule(Fnum, ChVal):
+        if Fnum == 0:
+            Vlen = len(ChVal)
+            if Vlen != 4:
+                if Vlen > 4:
+                    print("""入力文字数が４桁より多いです。会員IDは４桁です。
+                    先ほどの入力文字数：%s文字""" % Vlen)
+
+                elif Vlen < 4:
+                    print("""入力文字数が４桁より少ないです。会員IDは４桁です。
+                    先ほどの入力文字数：%s文字""" % Vlen)
+
+                for char in ChVal:
+                    if char != [0-9]:
+                        
+                return False
+
+            else:
+                return True
+
+        if Fnum == 1:
+            Vlen = len(ChVal)
+            if Vlen != 30:
+                if Vlen > 30:
+                    print("""入力文字数が４桁より多いです。会員IDは４桁です。
+                    先ほどの入力文字数：%s文字""" % Vlen)
+
+            for char in
+                return False
+
+            else:
+                return True
+
 
 
 
 class IOcontrol:    #ファイル入出力
 
-    def DExpt(writeV):    #ファイル出力
-        EIforderCheck()
+    Fname = ""
+
+    def DExpt(func, writeV):    #ファイル出力
+        Checker.EIforderCheck()
 
         Gdate = datetime.now()  #今の日時
         Pdate = Gdate.strftime('%Y%m%d_%H%M%S') #日時のSTR化
@@ -45,13 +80,13 @@ class IOcontrol:    #ファイル入出力
 
         #出力ファイル生成
         f = open('../Fpool/%s'% Fname, 'w')
-        f.write(writeV)
+        f.write("%s %s" % func , writeV)
         f.close()
 
         return Pdate
 
-    def DInpt(Fname):     #ファイル読込み
-        EIforderCheck()
+    def DInpt():     #ファイル読込み
+        Checker.EIforderCheck()
 
         #SV生成ファイルの読み込み
         f = open('../Fpool/%s'% Fname, 'r')
@@ -66,27 +101,66 @@ class IOcontrol:    #ファイル入出力
 
 
 
+class CLfunction:
+    def NewCreate():
+        while True:
+
+            UserID = USERinput.inputID(1)
+            UserData = USERinput.createUSER()
+
+
+            IOcontrol.DExpt(2, )
+            result = IOcontrol.DInpt()
+
+
+
+
+
+
 
 
 
 
 #ユーザ入力
 class USERinput:
-    def inputID(M_vla):
-        userID = input("IDを入力してください>>")
+    def inputID(func):
+        while True:
+            userID = input("IDを入力してください>>")
+            Chres = Checker.InputRule(0, userID)
+                if Chres == False:
+                    continue
 
-        SVconnect#引数で照会/削除指定の関数作成
 
-        return  userID
+            ##SVconnect#引数で照会/削除指定の関数作成
+            IOcontrol.DExpt(userID)
+            reqResult = IOcontrol.DInpt()
+            if len(reqResult) == 0:
+                if func == 1:
+                    print('')
+                    return userID
+                elif func == 2:
+                    print('')
+                elif func == 3:
+                    print('')
+
+            else:
+                if func == 1:
+                    print('')
+                    continue
+                elif func == 2:
+                    print('')
+                elif func == 3:
+                    print('')
 
     def createUSER():
-        userID = input("IDを入力してください>>")
         userNAME = input("名前を入力してください>>")
         userPLACE = input("住所を入力してください>>")
         userTEL = input("連絡先(電話番号)を入力してください>>")
         userMAIL = input("連絡先(メールアドレス)を入力してください>>")
 
-        return  (userID, userNAME, userPLACE, userTEL, userMAIL)
+        return  (userNAME, userPLACE, userTEL, userMAIL)
+
+
 
 #メイン表示
 class mainTop:
@@ -135,30 +209,35 @@ if __name__ == '__main__':
 
         print(M_val)
 
+        #新規登録
         if M_val == '1':
             try:
                 os.system('clear')
-                USERinput.createUSER()
+                CLfunction.NewCreate():
             except:
                 os.system('clear')
                 print("1 の入力を受け付けました")
+        #参照
         elif M_val == '2':
             try:
                 os.system('clear')
-                USERinput.inputID(M_val)
+                USERinput.inputID()
             except:
                 os.system('clear')
                 print("2 の入力を受け付けました")
+        #削除
         elif M_val == '3':
             try:
                 os.system('clear')
-                USERinput.inputID(M_val)
+                USERinput.inputID()
             except:
                 os.system('clear')
                 print("3 の入力を受け付けました")
+        #終了
         elif M_val == '0':
             os.system('clear')
             mainTop.printFin()
+        #入力エラー
         else:
             os.system('clear')
             print("指定と異なる値です。もう一度入れなおしてください。")
