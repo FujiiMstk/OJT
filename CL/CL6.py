@@ -6,35 +6,22 @@ import datetime
 import re
 
 import logging
+from logging import getLogger, StreamHandler, DEBUG , INFO
+logger = getLogger(__name__)
+logging.basicConfig(filename='example.log',level=INFO)
+handler = StreamHandler()
+handler.setLevel(INFO)
+logger.setLevel(INFO)
+logger.addHandler(handler)
+logger.propagate = False
 
-
-class log:
-    if os.path.exists("./Log/") == False:
-        os.mkdir("./Log/")
-    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='./Log/CL.log', format=logF, level=logging.DEBUG)
-
-    def info(INFO):
-        logging.info(INFO)
-
-    def errer(INFO):
-        logging.error(INFO)
-
-    def warning(INFO):
-        logging.warning(INFO)
-
-    def critical(INFO):
-        logging.critical(INFO)
-
-    def debag(INFO):
-        logging.debug(INFO)
+logger.info('test')
 
 
 class Checker:
     def EIforderCheck():
 
         if os.path.exists("../Fpool") == False:
-            log.info("mkdir:Fpool")
             os.mkdir("../Fpool")
 
     def InputRule(Fnum, ChVal):
@@ -90,7 +77,6 @@ class IOcontrol:  # ファイル入出力
     # Fname = ""
 
     def DExpt(func, writeV):  # ファイル出力
-        log.info("MakeExptFile")
 
         Checker.EIforderCheck()
 
@@ -104,13 +90,9 @@ class IOcontrol:  # ファイル入出力
         f.write("%s %s" % (func, writeV))
         f.close()
 
-        log.info("MadeExptFile")
-
         return Pdate
 
     def DInpt():  # ファイル読込み
-        log.info("InptFile")
-
         Checker.EIforderCheck()
         Gret = 'brank'
 
@@ -122,7 +104,6 @@ class IOcontrol:  # ファイル入出力
 
             # SV生成ファイルの読み込み
             for gFName in FName:
-                log.debag("gFName:%s"%gFName)
 
                 if gFName[0] == 'R':
                     f = open('../Fpool/%s' % gFName, 'r')
@@ -130,13 +111,10 @@ class IOcontrol:  # ファイル入出力
                     f.close()
                     # 使用済みファイルのリネーム
                     rFName = 'cmp-' + gFName
-                    log.debag(os.rename('../Fpool/%s' % gFName, '../Fpool/%s' % rFName))
-                    log.info("renamed")
+                    os.rename('../Fpool/%s' % gFName, '../Fpool/%s' % rFName)
 
                 else:
                     continue
-
-                log.info("fin_InptFile")
 
                 return Gret
 
@@ -157,7 +135,6 @@ class IOcontrol:  # ファイル入出力
 
 class CLfunction:
     def NewCreate():
-        log.info("NewCreate")
 
         while True:
 
@@ -178,26 +155,21 @@ class CLfunction:
 
             if result == 'True':
                 print('\n登録が完了しました\n')
-                log.info("Create_OK")
 
             else:
                 print('\n登録に失敗しました\n')
-                log.info("Create_BAD")
 
             FanCnt = USERinput.FunctionContinue()
 
             os.system('clear')
 
             if FanCnt == True:
-                log.info("Create_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_NewCreate")
                 break
 
     def SearchUser():
-        log.info("Search")
 
         while True:
 
@@ -220,15 +192,12 @@ class CLfunction:
             os.system('clear')
 
             if FanCnt == True:
-                log.info("Search_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_Search")
                 break
 
     def DeleteUser():
-        log.info("Delete")
 
         while True:
 
@@ -272,11 +241,9 @@ class CLfunction:
             os.system('clear')
 
             if FanCnt == True:
-                log.info("Delete_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_Delete")
                 break
 
     def ShowUser(UserID):
@@ -488,60 +455,53 @@ def mail():
 
     while True:
         M_val = mainTop.printTop()
-        log.debag('main(Mval:%s)'%M_val)
+
+        print(M_val)
 
         # 新規登録
         if M_val == '1':
-            log.info("Swlwct_New")
             try:
                 os.system('clear')
                 CLfunction.NewCreate()
                 continue
 
             except:
-                log.errer("Geterrer:L479(New)")
                 os.system('clear')
                 #mainTop.BreakEvent()
 
         # 参照
         elif M_val == '2':
-            log.info("Select_Get")
             try:
                 os.system('clear')
                 CLfunction.SearchUser()
                 continue
 
             except:
-                log.errer("Geterrer:L479(Get)")
                 os.system('clear')
                 #mainTop.BreakEvent()
         # 削除
 
         elif M_val == '3':
-            log.info("Select_Del")
             try:
                 os.system('clear')
                 CLfunction.DeleteUser()
                 continue
 
             except:
-                log.errer("Geterrer:L479(Del)")
                 os.system('clear')
                 #mainTop.BreakEvent()
         # 終了
         elif M_val == '0':
-            log.info("Select_EXIT")
             os.system('clear')
             mainTop.printFin()
 
         # 入力エラー
         else:
-            log.warning("InputWarning(main:%s)"%M_val)
             os.system('clear')
             print("指定と異なる値です。もう一度入れなおしてください。")
             continue
 
 if __name__ == '__main__':
-    log.info("CL_Start")
+    logger.info('test:main-in')
     os.system('clear')
     mail()

@@ -3,31 +3,6 @@ import os
 import time
 import redis
 
-import logging
-
-
-class log:
-    if os.path.exists("./Log/") == False:
-        os.mkdir("./Log/")
-    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='./Log/SV.log', format=logF, level=logging.DEBUG)
-
-    def info(INFO):
-        logging.info(INFO)
-
-    def errer(INFO):
-        logging.error(INFO)
-
-    def warning(INFO):
-        logging.warning(INFO)
-
-    def critical(INFO):
-        logging.critical(INFO)
-
-    def debag(INFO):
-        logging.debug(INFO)
-
-
 class Checker:
     def EIforderCheck():
         if os.path.exists("../Fpool") == False:
@@ -46,11 +21,10 @@ class IOcontrol:  # ファイル入出力
 
             if picFName[0] == 'E':
                 f = open('../Fpool/RSL-%s' % picFName, 'w')
-                log.info("Create:RSL-%s" % picFName)
                 f.write("%s" % writeV)
                 f.close()
             elif picFName[0] == '-':
-                log.info(os.remove('../Fpool/%s' % picFName))
+                os.remove('../Fpool/%s' % picFName)
 
 
 
@@ -68,7 +42,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.info(os.rename('../Fpool/%s' % FName, '../Fpool/-%s' % FName))
+            os.rename('../Fpool/%s' % FName, '../Fpool/-%s' % FName)
 
         return Gret
 
@@ -88,7 +62,6 @@ class IOcontrol:  # ファイル入出力
 
 
 def main():
-    log.info("SV_wake")
     r = redis.Redis(host='localhost', port=6379, db=15)
 
     TgFName = 'brank'
@@ -113,44 +86,40 @@ def main():
 
             CLreq = GetCLreq.split()
             if CLreq[0] == '1':
-                log.info("Select1")
 
                 result = r.set(CLreq[1], CLreq[2])
 
-                log.debag(IOcontrol.DExpt(FName, result))
+                IOcontrol.DExpt(FName, result)
 
                 continue
 
 
 
             elif CLreq[0] == '2':
-                log.info("Select2")
 
                 result = r.exists(CLreq[1])
                 print(result)
 
-                log.debag(IOcontrol.DExpt(FName, result))
+                IOcontrol.DExpt(FName, result)
                 continue
 
 
 
             elif CLreq[0] == '3':
-                log.info("Select3")
 
                 result = r.delete(CLreq[1])
                 print(result)
 
-                log.debag(IOcontrol.DExpt(FName, result))
+                IOcontrol.DExpt(FName, result)
                 continue
 
 
             elif CLreq[0] == '4':
-                log.info("Select4")
 
                 result = r.get(CLreq[1])
                 print(result)
 
-                log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                IOcontrol.DExpt(FName, result.decode('utf-8'))
                 continue
 
 
