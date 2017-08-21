@@ -100,81 +100,85 @@ def main():
         time.sleep(1)
         FName = IOcontrol.DSearch()
 
-        if FName == False:
+        try:
+
+            if FName == False:
+                continue
+    
+            else:
+                for gFName in FName:
+                    GetCLreq = IOcontrol.DInpt(gFName)
+    
+                    if GetCLreq != None:
+                        TgFName = gFName
+                        break
+    
+            if GetCLreq != None:
+    
+                CLreq = GetCLreq.split()
+                if CLreq[0] == '1':
+                    log.info("Select1")
+    
+                    result = r.set(CLreq[1], CLreq[2])
+    
+                    log.debag(IOcontrol.DExpt(FName, result))
+    
+                    continue
+    
+    
+    
+                elif CLreq[0] == '2':
+                    log.info("Select2")
+    
+                    result = r.exists(CLreq[1])
+                    #print(result)
+    
+                    log.debag(IOcontrol.DExpt(FName, result))
+                    continue
+    
+    
+    
+                elif CLreq[0] == '3':
+                    log.info("Select3")
+    
+                    result = r.delete(CLreq[1])
+                    #print(result)
+    
+                    log.debag(IOcontrol.DExpt(FName, result))
+                    continue
+    
+    
+                elif CLreq[0] == '4':
+                    log.info("Select4")
+    
+                    result = r.get(CLreq[1])
+                    #print(result)
+    
+                    log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    continue
+    
+                elif CLreq[0] == '5':
+                    log.info("Select5")
+    
+                    result = r.keys(CLreq[1])
+                    #print(result)
+    
+                    log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    continue
+    
+                elif CLreq[0] == '0':
+                    log.info("Select0")
+    
+                    result = "shutdown"
+                    #print(result)
+    
+                    log.debag(IOcontrol.DExpt(FName, result))
+                    print("Server Shutdown")
+                    return 0
+
+        except:
+            log.info("GetException")
             continue
-
-        else:
-            for gFName in FName:
-                GetCLreq = IOcontrol.DInpt(gFName)
-
-                if GetCLreq != None:
-                    TgFName = gFName
-                    break
-
-        if GetCLreq != None:
-
-            CLreq = GetCLreq.split()
-            if CLreq[0] == '1':
-                log.info("Select1")
-
-                result = r.set(CLreq[1], CLreq[2])
-
-                log.debag(IOcontrol.DExpt(FName, result))
-
-                continue
-
-
-
-            elif CLreq[0] == '2':
-                log.info("Select2")
-
-                result = r.exists(CLreq[1])
-                #print(result)
-
-                log.debag(IOcontrol.DExpt(FName, result))
-                continue
-
-
-
-            elif CLreq[0] == '3':
-                log.info("Select3")
-
-                result = r.delete(CLreq[1])
-                #print(result)
-
-                log.debag(IOcontrol.DExpt(FName, result))
-                continue
-
-
-            elif CLreq[0] == '4':
-                log.info("Select4")
-
-                result = r.get(CLreq[1])
-                #print(result)
-
-                log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
-                continue
-
-            elif CLreq[0] == '5':
-                log.info("Select5")
-
-                result = r.keys(CLreq[1])
-                #print(result)
-
-                log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
-                continue
-
-            elif CLreq[0] == '0':
-                log.info("Select0")
-
-                result = "shutdown"
-                #print(result)
-
-                log.debag(IOcontrol.DExpt(FName, result))
-                print("Server Shutdown")
-                return 0
-
-
 
 if __name__ == '__main__':
 
