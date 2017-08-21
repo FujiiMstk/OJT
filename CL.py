@@ -1,18 +1,20 @@
 from __future__ import print_function
+import timeout_decorator
 import time
 import sys
 import os
 import datetime
 import re
-
 import logging
 
+MAIN_PROCESS_TIMEOUT = 15
 
 class log:
     if os.path.exists("./Log/") == False:
         os.mkdir("./Log/")
+    t = datetime.datetime.today()
     logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'
-    logging.basicConfig(filename='./Log/CL.log', format=logF, level=logging.DEBUG)
+    logging.basicConfig(filename='./Log/%s_CL.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
     def info(INFO):
         logging.info(INFO)
@@ -205,15 +207,28 @@ class CLfunction:
 
             UserID = USERinput.inputID(2)
 
-            IOcontrol.DExpt('2', UserID)
-            result = IOcontrol.DInpt()
+            if UserID[0] == '*':
+                IOcontrol.DExpt('5', UserID[0])
+                result = IOcontrol.DInpt()
+            else:
+                IOcontrol.DExpt('2', UserID)
+                result = IOcontrol.DInpt()
 
-            if result == 'True':
-                print('\n指定されたユーザ(UserID:%s)は存在します。\n' % UserID)
-                CLfunction.ShowUser(UserID)
+            if UserID[0] == '*':
+                if result != '':
+                    print("『現在格納されているUserID』")
+                    for ID in result:
+                        print(ID)
+                else:
+                    print("現在格納されている情報はありません。")
 
             else:
-                print('\n指定されたユーザ(UserID:%s)は存在しません。\n' % UserID)
+                if result == 'True':
+                    print('\n指定されたユーザ(UserID:%s)は存在します。\n' % UserID)
+                    CLfunction.ShowUser(UserID)
+
+                else:
+                    print('\n指定されたユーザ(UserID:%s)は存在しません。\n' % UserID)
 
             FanCnt = USERinput.FunctionContinue()
 
@@ -301,12 +316,12 @@ class CLfunction:
                 while True:
                     ans = input('')
                     if ans == '':
-                        sys.exit()
+                        return 0
                     else:
                         continue
 
             elif answer == 'N' or answer == 'n' or answer == 'no' or answer == 'NO':
-                print("\n\nユーザの登録情報の表示を中止します")
+                print("\n\nユーザの登録情報の表示をスキップします")
                 break
 
             else:
@@ -321,8 +336,6 @@ class USERinput:
 
         while True:
             EvCount+=1
-            print(EvCount)
-
             userID = input("ユーザIDを入力してください>>")
 
             # Chres = Checker.InputRule(0, userID)
@@ -330,9 +343,18 @@ class USERinput:
             #    continue
 
             ##SVconnect#引数で照会/削除指定の関数作成
-            IOcontrol.DExpt(2, userID)
+            if userID == "*":
+                IOcontrol.DExpt(5, userID)
+            elif userID == "exit":
+                print("\n\n機能を終了します\n\n")
+                sys.exit()
+            else:
+                IOcontrol.DExpt(2, userID)
 
             reqResult = IOcontrol.DInpt()
+
+            if reqResult == "True":
+                EvCount = 0
 
             if len(reqResult) == 0 or reqResult == 'False':
                 if EvCount >=5:
@@ -368,6 +390,9 @@ class USERinput:
 
             print('\n')
 
+            if userID == '*':
+                return userID, reqResult
+
             return userID
 
     def createUSER():
@@ -394,6 +419,21 @@ class USERinput:
                 print('\n入力できるのは Y または N のみです。')
                 continue
 
+    def FunctionExit():
+
+        while True:
+            answer = input("\n\nこのアプリケーションを終了しますか(Y/N)>>")
+
+            if answer == 'Y' or answer == 'y' or answer == 'yes' or answer == 'YES':
+                IOcontrol.DExpt('0', '0')
+                return True
+
+            elif answer == 'N' or answer == 'n' or answer == 'no' or answer == 'NO':
+                return False
+
+            else:
+                print('\n入力できるのは Y または N のみです。')
+                continue
 
 
 
@@ -421,6 +461,21 @@ class mainTop:
         os.system('clear')
 
         print("""
+            サーバの終了をまっています。
+            しばらくお待ちください。
+            """)
+
+        time.sleep(5)
+
+        try:
+            if mainTop.SVclose() == "shutdown":
+                print('')
+        except TimeoutError:
+            print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
+
+        os.system('clear')
+
+        print("""
             アプリを終了します。
             エンターキーを押してください。
             """)
@@ -429,7 +484,12 @@ class mainTop:
 
         if len(end_Cnt) >= 0:
             os.system('clear')
-            sys.exit()
+            return 0
+
+
+    @timeout_decorator.timeout(MAIN_PROCESS_TIMEOUT)
+    def SVclose():
+        return  IOcontrol.DInpt()
 
     def CreateTop():
         print("""
@@ -446,6 +506,8 @@ class mainTop:
             # 　　　　（ハイフンあり、市外局番含む）                       #
             # 5:ユーザ連絡先[MAIL]                                         #
             # 　　　　                                                     #
+            #                                                              #
+            #　　　　※終了する場合は exit を入力してください              #
             ################################################################
             """)
 
@@ -458,6 +520,8 @@ class mainTop:
             #                                                              #
             # 1:ユーザＩＤ（半角数字４桁）                                 #
             # 　　　　                                                     #
+            #                                                              #
+            #　　　　※終了する場合は exit を入力してください              #
             ################################################################
             """)
 
@@ -470,6 +534,8 @@ class mainTop:
             #                                                              #
             # 1:ユーザＩＤ（半角数字４桁）                                 #
             # 　　　　                                                     #
+            #                                                              #
+            #　　　　※終了する場合は exit を入力してください              #
             ################################################################
             """)
 
@@ -499,7 +565,7 @@ def mail():
                 continue
 
             except:
-                log.errer("Geterrer:L479(New)")
+                log.errer("Geterrer:L(New)")
                 os.system('clear')
                 #mainTop.BreakEvent()
 
@@ -512,7 +578,7 @@ def mail():
                 continue
 
             except:
-                log.errer("Geterrer:L479(Get)")
+                log.errer("Geterrer:L530(Get)")
                 os.system('clear')
                 #mainTop.BreakEvent()
         # 削除
@@ -525,14 +591,31 @@ def mail():
                 continue
 
             except:
-                log.errer("Geterrer:L479(Del)")
+                log.errer("Geterrer:L543(Del)")
                 os.system('clear')
                 #mainTop.BreakEvent()
         # 終了
         elif M_val == '0':
             log.info("Select_EXIT")
-            os.system('clear')
-            mainTop.printFin()
+            try:
+                result = USERinput.FunctionExit()
+                if result == True:
+                    os.system('clear')
+                    if mainTop.printFin() == 0:
+                        return 0
+                else:
+                    print("アプリケーションに戻ります。\nしばらくお待ちください。")
+                    for p in "          ":
+                        print(p, end='')
+                        time.sleep(0.5)
+                    os.system('clear')
+                    continue
+            except:
+                log.errer("Geterrer:L559(EXIT)")
+                os.system('clear')
+                print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
+                print("\n\nアプリケーションを終了しました。")
+                return 0
 
         # 入力エラー
         else:
