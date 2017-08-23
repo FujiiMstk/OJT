@@ -6,17 +6,12 @@ import redis
 
 import logging
 
-###ログ出力用関数###
-class log:
 
-    #出力先フォルダ存在確認#
+class log:
     if os.path.exists("./Log/") == False:
         os.mkdir("./Log/")
-
-    t = datetime.today()    #出力ファイル用の日付の取得#
-    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'    #ログ出力フォーマット#
-
-    #ログ出力#
+    t = datetime.today()
+    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
     def info(INFO):
@@ -35,7 +30,6 @@ class log:
         logging.debug(INFO)
 
 
-###データ受け渡しフォルダ確保###
 class Checker:
     def EIforderCheck():
         if os.path.exists("../Fpool") == False:
@@ -43,7 +37,6 @@ class Checker:
 
 
 
-###データ受け渡し###
 class IOcontrol:  # ファイル入出力
 
     def DExpt(FName, writeV):  # ファイル出力
@@ -83,7 +76,7 @@ class IOcontrol:  # ファイル入出力
 
 
 
-    def DSearch():  #データ格納先確認#
+    def DSearch():
         Checker.EIforderCheck()
 
         SearchFile = os.listdir('../Fpool/')
@@ -98,7 +91,7 @@ class IOcontrol:  # ファイル入出力
 
 def main():
     log.info("SV_wake")
-    r = redis.Redis(host='localhost', port=6379, db=15) #Redis接続#
+    r = redis.Redis(host='localhost', port=6379, db=15)
 
     TgFName = 'brank'
     GetCLreq = 'brank'
@@ -111,79 +104,74 @@ def main():
 
             if FName == False:
                 continue
-
+    
             else:
                 for gFName in FName:
                     GetCLreq = IOcontrol.DInpt(gFName)
-
+    
                     if GetCLreq != None:
                         TgFName = gFName
                         break
-
+    
             if GetCLreq != None:
-
+    
                 CLreq = GetCLreq.split()
-
-                #新規登録#
                 if CLreq[0] == '1':
                     log.info("Select1")
-
+    
                     result = r.set(CLreq[1], CLreq[2])
-
+    
                     log.debag(IOcontrol.DExpt(FName, result))
-
+    
                     continue
-
-
-                #参照#
+    
+    
+    
                 elif CLreq[0] == '2':
                     log.info("Select2")
-
+    
                     result = r.exists(CLreq[1])
                     #print(result)
-
+    
                     log.debag(IOcontrol.DExpt(FName, result))
                     continue
-
-
-                #削除#
+    
+    
+    
                 elif CLreq[0] == '3':
                     log.info("Select3")
-
+    
                     result = r.delete(CLreq[1])
                     #print(result)
-
+    
                     log.debag(IOcontrol.DExpt(FName, result))
                     continue
-
-                #詳細情報を取得#
+    
+    
                 elif CLreq[0] == '4':
                     log.info("Select4")
-
+    
                     result = r.get(CLreq[1])
                     #print(result)
-
+    
                     log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
                     continue
-
-
-                #登録済みkey取得#
+    
                 elif CLreq[0] == '5':
                     log.info("Select5")
-
+    
                     result = r.keys(CLreq[1])
                     #print(result)
-
+    
                     log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
                     continue
-
-                #終了#
+    
                 elif CLreq[0] == '0':
                     log.info("Select0")
-
+    
                     result = "shutdown"
                     #print(result)
-
+    
                     log.debag(IOcontrol.DExpt(FName, result))
                     print("Server Shutdown")
                     return 0

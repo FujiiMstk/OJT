@@ -7,21 +7,14 @@ import datetime
 import re
 import logging
 
-###タイムアウト待機時間(秒)###
 MAIN_PROCESS_TIMEOUT = 15
 
-###ログ出力用関数###
 class log:
-
-    #出力先フォルダ存在確認#
     if os.path.exists("./Log/") == False:
         os.mkdir("./Log/")
-
-    t = datetime.today()    #出力ファイル用の日付の取得#
-    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'    #ログ出力フォーマット#
-
-    #ログ出力#
-    logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
+    t = datetime.datetime.today()
+    logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'
+    logging.basicConfig(filename='./Log/%s_CL.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
     def info(INFO):
         logging.info(INFO)
@@ -39,19 +32,16 @@ class log:
         logging.debug(INFO)
 
 
-###フォルダチェック・入力チェック###
 class Checker:
-    ###データ受け渡しフォルダ確保###
     def EIforderCheck():
 
         if os.path.exists("../Fpool") == False:
             log.info("mkdir:Fpool")
             os.mkdir("../Fpool")
 
-    ###入力規則###
     def InputRule(Fnum, ChVal):
         index = 0
-        if Fnum == 0:   #ID規則#
+        if Fnum == 0:
             searchFormat = re.compile(r'[0-9]')
             Vlen = len(ChVal)
             if Vlen > 4:
@@ -64,9 +54,7 @@ class Checker:
                 if SResult == None:
                     print('%d文字目に使用不可文字「%s」が入力されています。' % (index, IDchar))
             return False
-
-
-        elif Fnum == 1: #名前入力規則#
+        elif Fnum == 1:
             searchFormatHK = re.compile(r'[\u3040-\u30FF]')  # ひらがな＆カタカナ
             searchFormatKN = re.compile(r'[\u4E00-\u9FFF]')  # 漢字
             spaceIndex = 0
@@ -154,7 +142,7 @@ class IOcontrol:  # ファイル入出力
 
                 return Gret
 
-    def DSearch():#データ格納先確認#
+    def DSearch():
 
         Checker.EIforderCheck()
 
@@ -169,9 +157,7 @@ class IOcontrol:  # ファイル入出力
             return SearchFile
 
 
-###機能別関数###
 class CLfunction:
-    #新規登録#
     def NewCreate():
         log.info("NewCreate")
 
@@ -212,7 +198,6 @@ class CLfunction:
                 log.info("fin_NewCreate")
                 break
 
-    #参照#
     def SearchUser():
         log.info("Search")
 
@@ -257,7 +242,6 @@ class CLfunction:
                 log.info("fin_Search")
                 break
 
-    #削除#
     def DeleteUser():
         log.info("Delete")
 
@@ -310,7 +294,6 @@ class CLfunction:
                 log.info("fin_Delete")
                 break
 
-    #参照先詳細表示#
     def ShowUser(UserID):
         print('\n\n登録内容を確認しますか？')
         while True:
@@ -345,9 +328,9 @@ class CLfunction:
                 print("\n'Y'または'N'を入力してください\n")
                 continue
 
-# ユーザ入力#
+# ユーザ入力
+
 class USERinput:
-    #ID確認#
     def inputID(func):
         EvCount = 0
 
@@ -373,7 +356,6 @@ class USERinput:
             if reqResult == "True":
                 EvCount = 0
 
-            #ID戻り値確認#
             if len(reqResult) == 0 or reqResult == 'False':
                 if EvCount >=5:
                     sys.exit()
@@ -389,6 +371,8 @@ class USERinput:
                 elif func == 3:
                     print('\n\n指定されたユーザは存在しません。\n他のIDを指定してください')
                     continue
+
+
 
             else:
                 if EvCount >=5:
@@ -411,7 +395,6 @@ class USERinput:
 
             return userID
 
-    #ユーザ情報の入力#
     def createUSER():
 
         userNAME = input("\nユーザ氏名を入力してください>>")
@@ -421,7 +404,6 @@ class USERinput:
 
         return (userNAME, userPLACE, userTEL, userMAIL)
 
-    #機能継続確認#
     def FunctionContinue():
 
         while True:
@@ -437,7 +419,6 @@ class USERinput:
                 print('\n入力できるのは Y または N のみです。')
                 continue
 
-    #アプリケーション修了確認#
     def FunctionExit():
 
         while True:
@@ -647,4 +628,3 @@ if __name__ == '__main__':
     log.info("CL_Start")
     os.system('clear')
     mail()
-    log.info("CL_fin")
