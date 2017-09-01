@@ -19,19 +19,19 @@ class log:
     #ログ出力#
     logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
-    def info(INFO):
+    def INFO(INFO):
         logging.info(INFO)
 
-    def errer(INFO):
+    def ERROR(INFO):
         logging.error(INFO)
 
-    def warning(INFO):
+    def WARN(INFO):
         logging.warning(INFO)
 
-    def critical(INFO):
+    def CRIT(INFO):
         logging.critical(INFO)
 
-    def debag(INFO):
+    def DEBUG(INFO):
         logging.debug(INFO)
 
 
@@ -55,11 +55,11 @@ class IOcontrol:  # ファイル入出力
 
             if picFName[0] == 'E':
                 f = open('../Fpool/RSL_%s' % picFName, 'w')
-                log.info("Create:RSL_%s" % picFName)
+                log.INFO("Create:RSL_%s" % picFName)
                 f.write("%s" % writeV)
                 f.close()
             elif picFName[0] == '_':
-                log.info(os.remove('../Fpool/%s' % picFName))
+                log.INFO(os.remove('../Fpool/%s' % picFName))
 
 
 
@@ -77,7 +77,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.info(os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
+            log.INFO(os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
 
         return Gret
 
@@ -97,7 +97,7 @@ class IOcontrol:  # ファイル入出力
 
 
 def main():
-    log.info("SV_wake")
+    log.INFO("SV_wake")
     r = redis.Redis(host='localhost', port=6379, db=15) #Redis接続#
 
     TgFName = 'brank'
@@ -126,71 +126,71 @@ def main():
 
                 #新規登録#
                 if CLreq[0] == '1':
-                    log.info("Select1")
+                    log.INFO("Select1")
 
                     result = r.set(CLreq[1], CLreq[2])
 
-                    log.debag(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result))
 
                     continue
 
 
                 #参照#
                 elif CLreq[0] == '2':
-                    log.info("Select2")
+                    log.INFO("Select2")
 
                     result = r.exists(CLreq[1])
                     #print(result)
 
-                    log.debag(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result))
                     continue
 
 
                 #削除#
                 elif CLreq[0] == '3':
-                    log.info("Select3")
+                    log.INFO("Select3")
 
                     result = r.delete(CLreq[1])
                     #print(result)
 
-                    log.debag(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result))
                     continue
 
                 #詳細情報を取得#
                 elif CLreq[0] == '4':
-                    log.info("Select4")
+                    log.INFO("Select4")
 
                     result = r.get(CLreq[1])
                     #print(result)
 
-                    log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')))
                     continue
 
 
                 #登録済みkey取得#
                 elif CLreq[0] == '5':
-                    log.info("Select5")
+                    log.INFO("Select5")
 
                     result = r.keys(CLreq[1])
                     #print(result)
 
-                    log.debag(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')))
                     continue
 
                 #終了#
                 elif CLreq[0] == '0':
-                    log.info("Select0")
+                    log.INFO("Select0")
 
                     result = "shutdown"
                     #print(result)
 
-                    log.debag(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result))
                     print("Server Shutdown")
                     log.info("Server Shutdown")
                     return 0
 
         except:
-            log.info("GetException")
+            log.INFO("GetException")
             continue
 
 if __name__ == '__main__':
