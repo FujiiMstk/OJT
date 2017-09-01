@@ -186,6 +186,7 @@ def main():
 
                     log.debag(IOcontrol.DExpt(FName, result))
                     print("Server Shutdown")
+                    log.info("Server Shutdown")
                     return 0
 
         except:

@@ -17,11 +17,11 @@ class log:
     if os.path.exists("./Log/") == False:
         os.mkdir("./Log/")
 
-    t = datetime.today()    #出力ファイル用の日付の取得#
+    t = datetime.datetime.today()    #出力ファイル用の日付の取得#
     logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'    #ログ出力フォーマット#
 
     #ログ出力#
-    logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
+    logging.basicConfig(filename='./Log/%s_CL.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
     def info(INFO):
         logging.info(INFO)
