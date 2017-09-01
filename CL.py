@@ -6,6 +6,7 @@ import os
 import datetime
 import re
 import logging
+import subprocess
 
 ###タイムアウト待機時間(秒)###
 MAIN_PROCESS_TIMEOUT = 15
@@ -17,7 +18,7 @@ class log:
     if os.path.exists("./Log/") == False:
         os.mkdir("./Log/")
 
-    t = datetime.today()    #出力ファイル用の日付の取得#
+    t = datetime.datetime.today()    #出力ファイル用の日付の取得#
     logF = '%(asctime)s- %(name)s - %(levelname)s - %(message)s'    #ログ出力フォーマット#
 
     #ログ出力#
@@ -44,57 +45,60 @@ class Checker:
     ###データ受け渡しフォルダ確保###
     def EIforderCheck():
 
-        if os.path.exists("../Fpool") == False:
+        if os.path.exists("../Fpool/") == False:
             log.info("mkdir:Fpool")
-            os.mkdir("../Fpool")
+            os.mkdir("../Fpool/")
 
     ###入力規則###
     def InputRule(Fnum, ChVal):
-        index = 0
-        if Fnum == 0:   #ID規則#
-            searchFormat = re.compile(r'[0-9]')
+
+        searchFormatSP = re.compile('\s\s+')
+
+        # ID規則#
+        if Fnum == 0:
+            searchFormat = re.compile('\d{4}')
             Vlen = len(ChVal)
             if Vlen > 4:
                 print("""入力文字数が４桁より多いです。会員IDは４桁です。\n先ほどの入力文字数：%s文字""" % Vlen)
             elif Vlen < 4:
                 print("""入力文字数が４桁より少ないです。会員IDは４桁です。\n先ほどの入力文字数：%s文字""" % Vlen)
-            for IDchar in ChVal:
-                index += 1
-                SResult = searchFormat.search(IDchar)
-                if SResult == None:
-                    print('%d文字目に使用不可文字「%s」が入力されています。' % (index, IDchar))
-            return False
 
+            SResult = searchFormat.match(ChVal)
+            if SResult == None:
+                print('指定の形式で入力されていません。')
+                return False
+            else:
+                return True
 
-        elif Fnum == 1: #名前入力規則#
-            searchFormatHK = re.compile(r'[\u3040-\u30FF]')  # ひらがな＆カタカナ
-            searchFormatKN = re.compile(r'[\u4E00-\u9FFF]')  # 漢字
-            spaceIndex = 0
+        # 名前入力規則#
+        elif Fnum == 1:
+
+            searchFormatJP = re.compile('[ぁ-んァ-ン一-龥　 ]+')  # 日本語
+            searchFormatAZ = re.compile('[a-zA-Z　 ]+')  # 英名 or ミドルネーム
+            searchFormatMA = re.compile('[!"#$%&\'\(\)=\~\|\-\^\`\{\@\[\]\}+*;:<>?_,./！”＃＄％＆’（）＝～｜－＾￥‘｛＠「＋＊｝；：」＜＞？＿、。・\d]+')
+
             Vlen = len(ChVal)
             if Vlen != 30:
                 if Vlen > 30:
                     print("入力文字数が多すぎます。お名前が入りきらない場合は管理者へ問い合わせてください。")
-            for NameChar in ChVal:
-                index += 1
-                SResultHK = searchFormatHK.search(NameChar)
-                SResultKN = searchFormatKN.search(NameChar)
-                if index == 1 | index == Vlen:
-                    if spaceIndex > 0:
-                        print('%dつ目のスペースが入力されています。')
-                        spaceIndex += 1
-                        continue
-                    elif NameChar == '　':
-                        spaceIndex += 1
-                        continue
-                    elif NameChar == ' ':
-                        spaceIndex += 1
-                        continue
-                elif SResultHK == None:
-                    print('%d文字目に使用不可文字「%s」が入力されています。' % (index, NameChar))
-                    continue
-                elif SResultKN == None:
-                    print('%d文字目に使用不可文字「%s」が入力されています。' % (index, NameChar))
-            return False
+
+            SResultJP = searchFormatJP.match(ChVal)
+            SResultAZ = searchFormatAZ.search(ChVal)
+            SResultSP = searchFormatSP.findall(ChVal)
+            SResultMA = searchFormatMA.findall(ChVal)
+
+            if SResultJP != None and len(SResultSP) == 0 :
+                return True
+
+            elif SResultAZ != None and len(SResultSP) == 0 :
+                return True
+
+            elif len(SResultSP) >=1 or len(SResultMA) >= 1:
+                if len(SResultSP) >=1 :
+                    print('\nスペース2つ以上連続して入力されている箇所があります。\n')
+                elif len(SResultMA) >= 1:
+                    print("\n使用できない文字が使用されています。\n使用されている文字：%s\n" % SResultMA)
+                return False
         else:
             return True
 
@@ -202,7 +206,7 @@ class CLfunction:
 
             FanCnt = USERinput.FunctionContinue()
 
-            os.system('clear')
+            mainTop.UIclean()
 
             if FanCnt == True:
                 log.info("Create_continue")
@@ -247,7 +251,7 @@ class CLfunction:
 
             FanCnt = USERinput.FunctionContinue()
 
-            os.system('clear')
+            mainTop.UIclean()
 
             if FanCnt == True:
                 log.info("Search_continue")
@@ -300,7 +304,7 @@ class CLfunction:
 
             FanCnt = USERinput.FunctionContinue()
 
-            os.system('clear')
+            mainTop.UIclean()
 
             if FanCnt == True:
                 log.info("Delete_continue")
@@ -355,9 +359,10 @@ class USERinput:
             EvCount+=1
             userID = input("ユーザIDを入力してください>>")
 
-            # Chres = Checker.InputRule(0, userID)
-            # if Chres == False:
-            #    continue
+            Chres = Checker.InputRule(0, userID)
+            print(Chres)
+            if Chres == False:
+               continue
 
             ##SVconnect#引数で照会/削除指定の関数作成
             if userID == "*":
@@ -414,12 +419,27 @@ class USERinput:
     #ユーザ情報の入力#
     def createUSER():
 
-        userNAME = input("\nユーザ氏名を入力してください>>")
-        userPLACE = input("\n住所を入力してください>>")
-        userTEL = input("\nユーザ連絡先[TEL]を入力してください>>")
-        userMAIL = input("\nユーザ連絡先[MAIL]を入力してください>>")
+        while True:
+            userNAME = input("\nユーザ氏名を入力してください>>")
+            userPLACE = input("\n住所を入力してください>>")
+            userTEL = input("\nユーザ連絡先[TEL]を入力してください>>")
+            userMAIL = input("\nユーザ連絡先[MAIL]を入力してください>>")
 
-        return (userNAME, userPLACE, userTEL, userMAIL)
+            ResultCheckName = Checker.InputRule(1, userNAME)
+            ResultCheckPlace = Checker.InputRule(1, userPLACE)
+            ResultCheckTel = Checker.InputRule(1, userTEL)
+            ResultCheckMail = Checker.InputRule(1, userMAIL)
+
+            if ResultCheckName == False or ResultCheckPlace == False or ResultCheckTel == False or ResultCheckMail == False:
+                print("\n\n必要事項をもう一度入力しなおしてください。")
+                for a in range(5):
+                    print('。')
+                    time.sleep(1)
+                mainTop.UIclean()
+                mainTop.CreateTop()
+                continue
+
+            return (userNAME, userPLACE, userTEL, userMAIL)
 
     #機能継続確認#
     def FunctionContinue():
@@ -477,7 +497,7 @@ class mainTop:
         return sl_Menu
 
     def printFin():
-        os.system('clear')
+        mainTop.UIclean()
 
         print("""
             サーバの終了をまっています。
@@ -492,7 +512,7 @@ class mainTop:
         except TimeoutError:
             print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
 
-        os.system('clear')
+        mainTop.UIclean()
 
         print("""
             アプリを終了します。
@@ -502,7 +522,7 @@ class mainTop:
         end_Cnt = input('')
 
         if len(end_Cnt) >= 0:
-            os.system('clear')
+            mainTop.UIclean()
             return 0
 
 
@@ -568,6 +588,13 @@ class mainTop:
 
         """)
 
+    def UIclean():  ###見た目きれいに###
+        if os.name == 'posix':  ###LINUX用###
+            subprocess.call('clear', shell=True)
+        elif os.name == 'nt':  ###Windows用###
+            subprocess.call('cls', shell=True)
+        print()
+
 
 def mail():
 
@@ -579,39 +606,39 @@ def mail():
         if M_val == '1':
             log.info("Swlwct_New")
             try:
-                os.system('clear')
+                mainTop.UIclean()
                 CLfunction.NewCreate()
                 continue
 
             except:
                 log.errer("Geterrer:L(New)")
-                os.system('clear')
+                mainTop.UIclean()
                 #mainTop.BreakEvent()
 
         # 参照
         elif M_val == '2':
             log.info("Select_Get")
             try:
-                os.system('clear')
+                mainTop.UIclean()
                 CLfunction.SearchUser()
                 continue
 
             except:
                 log.errer("Geterrer:L530(Get)")
-                os.system('clear')
+                mainTop.UIclean()
                 #mainTop.BreakEvent()
         # 削除
 
         elif M_val == '3':
             log.info("Select_Del")
             try:
-                os.system('clear')
+                mainTop.UIclean()
                 CLfunction.DeleteUser()
                 continue
 
             except:
                 log.errer("Geterrer:L543(Del)")
-                os.system('clear')
+                mainTop.UIclean()
                 #mainTop.BreakEvent()
         # 終了
         elif M_val == '0':
@@ -619,7 +646,7 @@ def mail():
             try:
                 result = USERinput.FunctionExit()
                 if result == True:
-                    os.system('clear')
+                    mainTop.UIclean()
                     if mainTop.printFin() == 0:
                         return 0
                 else:
@@ -627,11 +654,11 @@ def mail():
                     for p in "          ":
                         print(p, end='')
                         time.sleep(0.5)
-                    os.system('clear')
+                    mainTop.UIclean()
                     continue
             except:
                 log.errer("Geterrer:L559(EXIT)")
-                os.system('clear')
+                mainTop.UIclean()
                 print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
                 print("\n\nアプリケーションを終了しました。")
                 return 0
@@ -639,12 +666,12 @@ def mail():
         # 入力エラー
         else:
             log.warning("InputWarning(main:%s)"%M_val)
-            os.system('clear')
+            mainTop.UIclean()
             print("指定と異なる値です。もう一度入れなおしてください。")
             continue
 
 if __name__ == '__main__':
     log.info("CL_Start")
-    os.system('clear')
+    mainTop.UIclean()
     mail()
     log.info("CL_fin")
