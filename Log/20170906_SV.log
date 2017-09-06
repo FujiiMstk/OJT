@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+2017-09-06 16:24:42,323- root - INFO - SV_wake
+2017-09-06 16:24:43,325- root - INFO - None
+2017-09-06 16:24:43,325- root - INFO - Select0
+2017-09-06 16:24:43,325- root - INFO - Create:RSL_Expt_20170823_104159.prf
+2017-09-06 16:24:43,326- root - INFO - Create:RSL_Expt_20170823_104033.prf
+2017-09-06 16:24:43,326- root - INFO - None
+2017-09-06 16:24:43,326- root - INFO - Create:RSL_Expt_20170823_104016.prf
+2017-09-06 16:24:43,326- root - DEBUG - None
+2017-09-06 16:24:43,326- root - INFO - GetException
+2017-09-06 16:24:44,328- root - INFO - None
+2017-09-06 16:24:44,328- root - INFO - Select0
+2017-09-06 16:24:44,328- root - INFO - Create:RSL_Expt_20170823_104033.prf
+2017-09-06 16:24:44,329- root - INFO - None
+2017-09-06 16:24:44,329- root - INFO - Create:RSL_Expt_20170823_104016.prf
+2017-09-06 16:24:44,329- root - DEBUG - None
+2017-09-06 16:24:44,329- root - INFO - GetException
+2017-09-06 16:24:45,331- root - INFO - None
+2017-09-06 16:24:45,331- root - INFO - Select0
+2017-09-06 16:24:45,331- root - INFO - None
+2017-09-06 16:24:45,331- root - INFO - Create:RSL_Expt_20170823_104016.prf
+2017-09-06 16:24:45,332- root - DEBUG - None
+2017-09-06 16:24:45,332- root - INFO - GetException
+2017-09-06 16:24:58,350- root - INFO - None
+2017-09-06 16:24:58,350- root - INFO - Select0
+2017-09-06 16:24:58,350- root - INFO - None
+2017-09-06 16:24:58,351- root - INFO - Create:RSL_Expt_20170906_162457.prf
+2017-09-06 16:24:58,351- root - DEBUG - None
+2017-09-06 16:24:58,351- root - INFO - GetException
+=======
 2017-09-06 14:48:48,598- root - INFO - SV_wake
 2017-09-06 14:49:37,874- root - INFO - None
 2017-09-06 14:49:37,875- root - INFO - Select2
@@ -766,6 +796,7 @@
 2017-09-06 16:22:29,475- root - INFO - None
 2017-09-06 16:22:29,475- root - DEBUG - None
 2017-09-06 16:22:29,475- root - INFO - GetException
+<<<<<<< HEAD
 2017-09-06 16:32:44,511- root - INFO - SV_wake
 2017-09-06 16:32:52,607- root - INFO - None
 2017-09-06 16:32:52,607- root - INFO - Select0
@@ -802,3 +833,6 @@
 2017-09-06 16:43:08,251- root - INFO - None
 2017-09-06 16:43:08,251- root - DEBUG - None
 2017-09-06 16:43:08,251- root - INFO - Server Shutdown
+=======
+>>>>>>> eca0da5a1efd38ce87bdd1ecce90294e1ecba304
+>>>>>>> 8d8307f196783bd940162d9162ed380494ae5ab4
