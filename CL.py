@@ -47,7 +47,7 @@ class Checker:
 
         if os.path.exists("../Fpool/") == False:
             log.info("mkdir:Fpool")
-            os.mkdir("../Fpool/")
+            log.debag(os.mkdir("../Fpool/"))
 
     ###入力規則###
     def InputRule(Fnum, ChVal):
@@ -117,7 +117,6 @@ class Checker:
             SResultSP = searchFormatSP.findall(ChVal)
             SResultPMA = searchFormatPMA.findall(ChVal)
 
-            print("PL:%s ,SP:%s ,PMA:%s"%(SResultPL,SResultSP,SResultPMA))
 
             if SResultPL != None and len(SResultSP) == 0:
                 return True
@@ -156,7 +155,6 @@ class Checker:
             SResultTL5 = searchFormatTL5.match(ChVal)
             SResultTMA = searchFormatTMA.findall(ChVal)
 
-            print("TL1:%s ,TL2:%s ,TL3:%s ,TL4:%s ,TL5:%s ,TMA:%s" % (SResultTL1, SResultTL2, SResultTL3, SResultTL4, SResultTL5, SResultTMA))
 
             if SResultTL1 != None or SResultTL2 != None or SResultTL3 != None or SResultTL4 != None or SResultTL5 != None :
                 return True
@@ -187,7 +185,6 @@ class Checker:
             SResultDD = searchFormatDD.findall(ChVal)
             SResultMMA = searchFormatMMA.findall(ChVal)
 
-            print("ML:%s ,DD:%s ,MMA:%s" % (SResultML, SResultDD, SResultMMA))
 
             if SResultML != None and len(SResultDD) == 0:
                 return True
@@ -251,10 +248,9 @@ class IOcontrol:  # ファイル入出力
                     f = open('../Fpool/%s' % gFName, 'r')
                     Gret = f.read()  # SVからの返事を格納
                     f.close()
-                    # 使用済みファイルのリネーム
-                    rFName = 'cmp-' + gFName
-                    log.debag(os.rename('../Fpool/%s' % gFName, '../Fpool/%s' % rFName))
-                    log.info("renamed")
+                    # 使用済みファイルのリムーブ
+                    log.debag(os.remove('../Fpool/%s' % gFName))
+                    log.info("removed")
 
                 else:
                     continue

@@ -98,7 +98,7 @@ class IOcontrol:  # ファイル入出力
 
 
 def main():
-    log.INFO("SV_wake")
+    log.INFO("join:main()")
     r = redis.Redis(host='localhost', port=6379, db=15) #Redis接続#
 
     TgFName = 'brank'
@@ -192,13 +192,13 @@ def main():
 
         except SystemExit:
             return  0
+
         else:
             log.INFO("GetException")
             continue
 
 
 if __name__ == '__main__':
-
+    log.INFO("Wake SV!")
     main()
-
-    print("exit")
+    log.INFO("See You!")
