@@ -797,3 +797,10 @@
 2017-09-06 16:22:29,475- root - DEBUG - None
 2017-09-06 16:22:29,475- root - INFO - GetException
 >>>>>>> eca0da5a1efd38ce87bdd1ecce90294e1ecba304
+2017-09-06 16:46:46,752- root - INFO - SV_wake
+2017-09-06 16:46:52,761- root - INFO - None
+2017-09-06 16:46:52,761- root - INFO - Select0
+2017-09-06 16:46:52,761- root - INFO - Create:RSL_Expt_20170906_164652.prf
+2017-09-06 16:46:52,762- root - INFO - None
+2017-09-06 16:46:52,762- root - DEBUG - None
+2017-09-06 16:46:52,762- root - INFO - GetException
