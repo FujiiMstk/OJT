@@ -72,10 +72,11 @@ class Checker:
 
         # 名前入力規則#
         elif Fnum == 1:
+            print("C1")
 
-            searchFormatJP = re.compile('[ぁ-んァ-ン一-龥　 ]+')  # 日本語
+            searchFormatJP = re.compile('[ぁ-んァ-ン一-龥　\u0020]+')  # 日本語
             searchFormatAZ = re.compile('[a-zA-Z　 ]+')  # 英名 or ミドルネーム
-            searchFormatMA = re.compile('[!"#$%&\'\(\)=\~\|\-\^\`\{\@\[\]\}+*;:<>?_,./！”＃＄％＆’（）＝～｜－＾￥‘｛＠「＋＊｝；：」＜＞？＿、。・\d]+')
+            searchFormatNMA = re.compile('[!"#$%&\'\(\)=\~\|\-\^\`\{\@\[\]\}+*;:<>?_,./！”＃＄％＆’（）＝～｜－＾￥‘｛＠「＋＊｝；：」＜＞？＿、。・\d]+')
 
             Vlen = len(ChVal)
             if Vlen != 30:
@@ -85,7 +86,7 @@ class Checker:
             SResultJP = searchFormatJP.match(ChVal)
             SResultAZ = searchFormatAZ.search(ChVal)
             SResultSP = searchFormatSP.findall(ChVal)
-            SResultMA = searchFormatMA.findall(ChVal)
+            SResultNMA = searchFormatNMA.findall(ChVal)
 
             if SResultJP != None and len(SResultSP) == 0 :
                 return True
@@ -93,12 +94,116 @@ class Checker:
             elif SResultAZ != None and len(SResultSP) == 0 :
                 return True
 
-            elif len(SResultSP) >=1 or len(SResultMA) >= 1:
+            elif len(SResultSP) >=1 or len(SResultNMA) >= 1:
                 if len(SResultSP) >=1 :
                     print('\nスペース2つ以上連続して入力されている箇所があります。\n')
-                elif len(SResultMA) >= 1:
+                elif len(SResultNMA) >= 1:
+                    print("\n使用できない文字が使用されています。\n使用されている文字：%s\n" % SResultNMA)
+                return False
+
+        # 住所規則#
+        elif Fnum == 2:
+            print("C2")
+
+            searchFormatPL = re.compile('[一-龥]{2,3}[都道府県][ぁ-んァ-ン一-龥　\u0020\w\-－]+')  # 日本語/英数字/スペース/ハイフン
+            searchFormatPMA = re.compile('[!"#$%&\'\(\)=\~\|\^\`\{\@\[\]\}+*;:<>?_,./！”＃＄％＆’（）＝～｜＾￥‘｛＠「＋＊｝；：」＜＞？＿、。・]+')
+
+            Vlen = len(ChVal)
+            if Vlen != 50:
+                if Vlen > 50:
+                    print("入力文字数が多すぎます。住所が入りきらない場合は管理者へ問い合わせてください。")
+
+            SResultPL = searchFormatPL.match(ChVal)
+            SResultSP = searchFormatSP.findall(ChVal)
+            SResultPMA = searchFormatPMA.findall(ChVal)
+
+            print("PL:%s ,SP:%s ,PMA:%s"%(SResultPL,SResultSP,SResultPMA))
+
+            if SResultPL != None and len(SResultSP) == 0:
+                return True
+
+            elif len(SResultSP) >= 1 or len(SResultPMA) >= 1:
+                if len(SResultSP) >= 1:
+                    print('\nスペース2つ以上連続して入力されている箇所があります。\n')
+                elif len(SResultPMA) >= 1:
+                    print("\n使用できない文字が使用されています。\n使用されている文字：%s\n" % SResultPMA)
+                return False
+            else :
+                print("指定の入力は無効です。受け取った値[%s]"%ChVal)
+                return False
+
+        # 連絡先(TEL)入力規則#
+        elif Fnum == 3:
+            print("C3")
+
+            #国内プレフィックス「0」+[市外局番+市内局番「全5桁」]+加入者番号「4桁」#
+            searchFormatTL1 = re.compile('0[346]\-\d{4}\-\d{4}')  #固定電話1
+            searchFormatTL2 = re.compile('0\d{2}\-\d{3}\-\d{4}')  #固定電話2
+            searchFormatTL3 = re.compile('0\d{3}\-\d{2}\-\d{4}')  #固定電話3
+            searchFormatTL4 = re.compile('0\d{4}\-\d{1}\-\d{4}')  #固定電話4
+            searchFormatTL5 = re.compile('0[5789]0\-\d{4}\-\d{4}')  #携帯電話
+            searchFormatTMA = re.compile('\D+')
+
+            Vlen = len(ChVal)
+            if Vlen != 13:
+                if Vlen > 13:
+                    print("入力文字数が多すぎます。もう一度やり直してください。")
+
+            SResultTL1 = searchFormatTL1.match(ChVal)
+            SResultTL2 = searchFormatTL2.match(ChVal)
+            SResultTL3 = searchFormatTL3.match(ChVal)
+            SResultTL4 = searchFormatTL4.match(ChVal)
+            SResultTL5 = searchFormatTL5.match(ChVal)
+            SResultTMA = searchFormatTMA.findall(ChVal)
+
+            print("TL1:%s ,TL2:%s ,TL3:%s ,TL4:%s ,TL5:%s ,TMA:%s" % (SResultTL1, SResultTL2, SResultTL3, SResultTL4, SResultTL5, SResultTMA))
+
+            if SResultTL1 != None or SResultTL2 != None or SResultTL3 != None or SResultTL4 != None or SResultTL5 != None :
+                return True
+
+            elif len(SResultTMA) >= 1:
+                if len(SResultTMA) >= 1:
                     print("\n使用できない文字が使用されています。\n使用されている文字：%s\n" % SResultMA)
                 return False
+
+            else :
+                print("指定の入力は無効です。受け取った値[%s]"%ChVal)
+                return False
+
+        # 連絡先(MAIL)入力規則#
+        elif Fnum == 4:
+            print("C4")
+
+            searchFormatML = re.compile('[a-z0-9._\-]{2,30}\@[a-z0-9._\-]+')  # [30]@domein
+            searchFormatDD = re.compile('\.\.+')
+            searchFormatMMA = re.compile('[!"#$%&\'\(\)=\~\|\^\`\{\@\[\]\}+*;:<>?,/！”＃＄％＆’（）＝～｜－＾￥‘｛＠「＋＊｝；：」＜＞？＿、。・ 　]+')
+
+            Vlen = len(ChVal)
+            if Vlen != 100:
+                if Vlen > 100:
+                    print("入力文字数が多すぎます。お持ちのメールアドレスが入りきらない場合は管理者へ問い合わせてください。")
+
+            SResultML = searchFormatML.match(ChVal)
+            SResultDD = searchFormatDD.findall(ChVal)
+            SResultMMA = searchFormatMMA.findall(ChVal)
+
+            print("ML:%s ,DD:%s ,MMA:%s" % (SResultML, SResultDD, SResultMMA))
+
+            if SResultML != None and len(SResultDD) == 0:
+                return True
+
+            elif len(SResultDD) >= 1 or len(SResultMMA) >= 1:
+                if len(SResultDD) >= 1:
+                    print('\n[.]が2つ以上連続して入力されている箇所があります。\n')
+                elif len(SResultMMA) >= 1:
+                    print("\n使用できない文字が使用されています。\n使用されている文字：%s\n" % SResultMMA)
+                return False
+
+            else :
+                print("指定の入力は無効です。受け取った値[%s]"%ChVal)
+                return False
+
+
         else:
             return True
 
@@ -189,6 +294,8 @@ class CLfunction:
             UpData = UserID + ' '
 
             for instr in UserData:
+                instr = instr.replace('\u0020', '#')
+                instr = instr.replace('\u3000', '＃')
                 UpData = UpData + instr
                 UpData = UpData + '/'
 
@@ -324,6 +431,9 @@ class CLfunction:
                 IOcontrol.DExpt('4', UserID)
                 result = IOcontrol.DInpt()
 
+                result = result.replace('#', '\u0020')
+                result = result.replace('＃', '\u3000')
+
                 CLreq = result.split('/')
 
                 print("\n\n\nユーザID：%s" % UserID)
@@ -426,9 +536,9 @@ class USERinput:
             userMAIL = input("\nユーザ連絡先[MAIL]を入力してください>>")
 
             ResultCheckName = Checker.InputRule(1, userNAME)
-            ResultCheckPlace = Checker.InputRule(1, userPLACE)
-            ResultCheckTel = Checker.InputRule(1, userTEL)
-            ResultCheckMail = Checker.InputRule(1, userMAIL)
+            ResultCheckPlace = Checker.InputRule(2, userPLACE)
+            ResultCheckTel = Checker.InputRule(3, userTEL)
+            ResultCheckMail = Checker.InputRule(4, userMAIL)
 
             if ResultCheckName == False or ResultCheckPlace == False or ResultCheckTel == False or ResultCheckMail == False:
                 print("\n\n必要事項をもう一度入力しなおしてください。")
