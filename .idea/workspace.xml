@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="466b6b56-3b4b-4559-baa3-8fc2b15176fc" name="デフォルト" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CL.py" afterPath="$PROJECT_DIR$/CL.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Log/20170906_CL.log" afterPath="$PROJECT_DIR$/Log/20170906_CL.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Log/20170906_SV.log" afterPath="$PROJECT_DIR$/Log/20170906_SV.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SV.py" afterPath="$PROJECT_DIR$/SV.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="SV.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="197" column="10" lean-forward="true" selection-start-line="197" selection-start-column="10" selection-end-line="197" selection-end-column="10" />
+            <state relative-caret-position="420">
+              <caret line="199" column="26" lean-forward="true" selection-start-line="199" selection-start-column="26" selection-end-line="199" selection-end-column="26" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -333,8 +333,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="197" column="10" lean-forward="true" selection-start-line="197" selection-start-column="10" selection-end-line="197" selection-end-column="10" />
+        <state relative-caret-position="420">
+          <caret line="199" column="26" lean-forward="true" selection-start-line="199" selection-start-column="26" selection-end-line="199" selection-end-column="26" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

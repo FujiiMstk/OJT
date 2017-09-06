@@ -3,6 +3,7 @@ from datetime import datetime
 import os
 import time
 import redis
+import sys
 
 import logging
 
@@ -186,15 +187,16 @@ def main():
 
                     log.DEBUG(IOcontrol.DExpt(FName, result))
                     print("Server Shutdown")
-                    log.info("Server Shutdown")
-                    return 0
+                    log.INFO("Server Shutdown")
+                    sys.exit()
 
-        except:
+        except SystemExit:
+            return  0
+        else:
             log.INFO("GetException")
             continue
+
 
 if __name__ == '__main__':
 
     main()
-
-    print("exit")

@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-2017-09-06 16:24:42,276- root - INFO - CL_Start
-2017-09-06 16:24:55,813- root - DEBUG - main(Mval:0)
-2017-09-06 16:24:55,814- root - INFO - Select_EXIT
-2017-09-06 16:24:57,491- root - INFO - MakeExptFile
-2017-09-06 16:24:57,492- root - INFO - MadeExptFile
-2017-09-06 16:25:02,502- root - INFO - InptFile
-2017-09-06 16:25:04,505- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103024.prf
-2017-09-06 16:25:04,505- root - DEBUG - gFName:cmp-RSL_Expt_20170821_170020.prf
-2017-09-06 16:25:04,505- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165805.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103551.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165312.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165816.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103535.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103902.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165947.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165819.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103035.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_102957.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170823_103834.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:cmp-RSL_Expt_20170821_165846.prf
-2017-09-06 16:25:04,506- root - DEBUG - gFName:RSL_Expt_20170906_162457.prf
-2017-09-06 16:25:04,507- root - DEBUG - None
-2017-09-06 16:25:04,507- root - INFO - renamed
-2017-09-06 16:25:04,507- root - INFO - fin_InptFile
-2017-09-06 16:25:07,534- root - INFO - CL_fin
-=======
 2017-09-06 14:48:39,839- root - INFO - CL_Start
 2017-09-06 14:49:25,425- root - DEBUG - main(Mval:1)
 2017-09-06 14:49:25,426- root - INFO - Swlwct_New
@@ -7668,6 +7641,7 @@
 2017-09-06 16:22:28,842- root - INFO - MadeExptFile
 2017-09-06 16:22:33,871- root - ERROR - Geterrer:L559(EXIT)
 2017-09-06 16:22:33,883- root - INFO - CL_fin
+<<<<<<< HEAD
 >>>>>>> eca0da5a1efd38ce87bdd1ecce90294e1ecba304
 2017-09-06 16:46:46,705- root - INFO - CL_Start
 2017-09-06 16:46:50,520- root - DEBUG - main(Mval:0)
@@ -7693,3 +7667,26 @@
 2017-09-06 16:46:59,389- root - INFO - renamed
 2017-09-06 16:46:59,389- root - INFO - fin_InptFile
 2017-09-06 16:47:01,076- root - INFO - CL_fin
+=======
+2017-09-06 16:32:47,849- root - INFO - CL_Start
+2017-09-06 16:32:49,845- root - DEBUG - main(Mval:0)
+2017-09-06 16:32:49,845- root - INFO - Select_EXIT
+2017-09-06 16:32:51,722- root - INFO - MakeExptFile
+2017-09-06 16:32:51,725- root - INFO - MadeExptFile
+2017-09-06 16:32:56,755- root - ERROR - Geterrer:L559(EXIT)
+2017-09-06 16:32:56,755- root - INFO - CL_fin
+2017-09-06 16:42:05,227- root - INFO - CL_Start
+2017-09-06 16:42:06,827- root - DEBUG - main(Mval:0)
+2017-09-06 16:42:06,827- root - INFO - Select_EXIT
+2017-09-06 16:42:08,908- root - INFO - MakeExptFile
+2017-09-06 16:42:08,908- root - INFO - MadeExptFile
+2017-09-06 16:42:13,931- root - ERROR - Geterrer:L559(EXIT)
+2017-09-06 16:42:13,931- root - INFO - CL_fin
+2017-09-06 16:43:02,523- root - INFO - CL_Start
+2017-09-06 16:43:05,250- root - DEBUG - main(Mval:0)
+2017-09-06 16:43:05,250- root - INFO - Select_EXIT
+2017-09-06 16:43:07,353- root - INFO - MakeExptFile
+2017-09-06 16:43:07,353- root - INFO - MadeExptFile
+2017-09-06 16:43:12,380- root - ERROR - Geterrer:L559(EXIT)
+2017-09-06 16:43:12,380- root - INFO - CL_fin
+>>>>>>> 74abd3b0da84e1b16f4e22bbf8e4fbe5c05b00f6
