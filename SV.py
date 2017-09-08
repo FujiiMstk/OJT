@@ -26,31 +26,31 @@ class log:
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.info(INFO+formatLine)
+        logging.info(str(INFO)+formatLine)
 
     def ERROR(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.error(INFO+formatLine)
+        logging.error(str(INFO)+formatLine)
 
     def WARN(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.warning(INFO+formatLine)
+        logging.warning(str(INFO)+formatLine)
 
     def CRIT(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.critical(INFO+formatLine)
+        logging.critical(str(INFO)+formatLine)
 
     def DEBUG(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.debug(INFO+formatLine)
+        logging.debug(str(INFO)+formatLine)
 
     def location(depth=0):
         frame = inspect.currentframe().f_back
