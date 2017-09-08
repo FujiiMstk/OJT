@@ -200,7 +200,7 @@ def main():
             return  0
 
         else:
-            log.INFO("GetException", log.location())
+            log.INFO("GetException")
             log.DEBUG(FName)
             log.WARN(traceback.format_exc())
             #traceback.print_exception()
@@ -208,6 +208,6 @@ def main():
 
 
 if __name__ == '__main__':
-    log.INFO("Wake SV!:%s" % log.location())
+    log.INFO("Wake SV!:"+log.location())
     main()
-    log.INFO("See You!", log.location())
+    log.INFO("See You!")
