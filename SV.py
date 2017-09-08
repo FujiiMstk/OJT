@@ -23,31 +23,31 @@ class log:
 
 
     def INFO(INFO, line):
-        formatLine = None
+        formatLine = ""
         for spritLine in line:
             formatLine = formatLine + spritLine
         logging.info(INFO+formatLine)
 
     def ERROR(INFO, line):
-        formatLine = None
+        formatLine = ""
         for spritLine in line:
             formatLine = formatLine + spritLine
         logging.error(INFO+line)
 
     def WARN(INFO, line):
-        formatLine = None
+        formatLine = ""
         for spritLine in line:
             formatLine = formatLine + spritLine
         logging.warning(INFO+line)
 
     def CRIT(INFO, line):
-        formatLine = None
+        formatLine = ""
         for spritLine in line:
             formatLine = formatLine + spritLine
         logging.critical(INFO+line)
 
     def DEBUG(INFO, line):
-        formatLine = None
+        formatLine = ""
         for spritLine in line:
             formatLine = formatLine + spritLine
         logging.debug(INFO+line)
