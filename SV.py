@@ -195,6 +195,7 @@ def main():
 
         else:
             log.INFO("GetException")
+            log.DEBUG(FName)
             log.WARN(traceback.format_exc())
             traceback.print_exception()
             continue
