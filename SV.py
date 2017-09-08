@@ -196,6 +196,7 @@ def main():
         else:
             log.INFO("GetException")
             log.WARN(traceback.format_exc())
+            traceback.print_exc()
             continue
 
 
