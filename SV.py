@@ -109,7 +109,7 @@ def main():
         FName = IOcontrol.DSearch()
 
         try:
-
+            log.INFO("try in")
             if len(FName) == 0: #FName == None:
                 continue
 
