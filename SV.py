@@ -196,8 +196,8 @@ def main():
                     print("Server Shutdown")
                     log.INFO("Server Shutdown")
                     sys.exit()
-
-                continue
+            log.INFO(log.location())
+            continue
 
         except SystemExit:
             return  0
