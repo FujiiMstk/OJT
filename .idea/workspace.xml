@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="466b6b56-3b4b-4559-baa3-8fc2b15176fc" name="デフォルト" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CL.py" afterPath="$PROJECT_DIR$/CL.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SV.py" afterPath="$PROJECT_DIR$/SV.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="CL.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CL.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="665" column="33" lean-forward="true" selection-start-line="665" selection-start-column="33" selection-end-line="665" selection-end-column="33" />
+            <state relative-caret-position="649">
+              <caret line="770" column="39" lean-forward="true" selection-start-line="770" selection-start-column="39" selection-end-line="770" selection-end-column="39" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -63,6 +62,7 @@
       <find>errer(</find>
       <find>InputRule</find>
       <find>log.</find>
+      <find>log.debag</find>
     </findStrings>
     <replaceStrings>
       <replace>debug</replace>
@@ -415,8 +415,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="665" column="33" lean-forward="true" selection-start-line="665" selection-start-column="33" selection-end-line="665" selection-end-column="33" />
+        <state relative-caret-position="649">
+          <caret line="770" column="39" lean-forward="true" selection-start-line="770" selection-start-column="39" selection-end-line="770" selection-end-column="39" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

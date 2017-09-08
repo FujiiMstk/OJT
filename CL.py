@@ -69,8 +69,8 @@ class Checker:
     def EIforderCheck():
 
         if os.path.exists("../Fpool/") == False:
-            log.info("mkdir:Fpool")
-            log.debag(os.mkdir("../Fpool/"))
+            log.INFO("mkdir:Fpool")
+            log.DEBUG(os.mkdir("../Fpool/"))
 
     ###入力規則###
     def InputRule(Fnum, ChVal):
@@ -233,7 +233,7 @@ class IOcontrol:  # ファイル入出力
     # Fname = ""
 
     def DExpt(func, writeV):  # ファイル出力
-        log.info("MakeExptFile")
+        log.INFO("MakeExptFile")
 
         Checker.EIforderCheck()
 
@@ -247,12 +247,12 @@ class IOcontrol:  # ファイル入出力
         f.write("%s %s" % (func, writeV))
         f.close()
 
-        log.info("MadeExptFile")
+        log.INFO("MadeExptFile")
 
         return Pdate
 
     def DInpt():  # ファイル読込み
-        log.info("InptFile")
+        log.INFO("InptFile")
 
         Checker.EIforderCheck()
         Gret = 'brank'
@@ -265,20 +265,20 @@ class IOcontrol:  # ファイル入出力
 
             # SV生成ファイルの読み込み
             for gFName in FName:
-                log.debag("gFName:%s"%gFName)
+                log.DEBUG("gFName:%s"%gFName)
 
                 if gFName[0] == 'R':
                     f = open('../Fpool/%s' % gFName, 'r')
                     Gret = f.read()  # SVからの返事を格納
                     f.close()
                     # 使用済みファイルのリムーブ
-                    log.debag(os.remove('../Fpool/%s' % gFName))
-                    log.info("removed")
+                    log.DEBUG(os.remove('../Fpool/%s' % gFName))
+                    log.INFO("removed")
 
                 else:
                     continue
 
-                log.info("fin_InptFile")
+                log.INFO("fin_InptFile")
 
                 return Gret
 
@@ -301,7 +301,7 @@ class IOcontrol:  # ファイル入出力
 class CLfunction:
     #新規登録#
     def NewCreate():
-        log.info("NewCreate")
+        log.INFO("NewCreate")
 
         while True:
 
@@ -324,27 +324,27 @@ class CLfunction:
 
             if result == 'True':
                 print('\n登録が完了しました\n')
-                log.info("Create_OK")
+                log.INFO("Create_OK")
 
             else:
                 print('\n登録に失敗しました\n')
-                log.info("Create_BAD")
+                log.INFO("Create_BAD")
 
             FanCnt = USERinput.FunctionContinue()
 
             mainTop.UIclean()
 
             if FanCnt == True:
-                log.info("Create_continue")
+                log.INFO("Create_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_NewCreate")
+                log.INFO("fin_NewCreate")
                 break
 
     #参照#
     def SearchUser():
-        log.info("Search")
+        log.INFO("Search")
 
         while True:
 
@@ -380,16 +380,16 @@ class CLfunction:
             mainTop.UIclean()
 
             if FanCnt == True:
-                log.info("Search_continue")
+                log.INFO("Search_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_Search")
+                log.INFO("fin_Search")
                 break
 
     #削除#
     def DeleteUser():
-        log.info("Delete")
+        log.INFO("Delete")
 
         while True:
 
@@ -433,11 +433,11 @@ class CLfunction:
             mainTop.UIclean()
 
             if FanCnt == True:
-                log.info("Delete_continue")
+                log.INFO("Delete_continue")
                 continue
 
             elif FanCnt == False:
-                log.info("fin_Delete")
+                log.INFO("fin_Delete")
                 break
 
     #参照先詳細表示#
@@ -735,49 +735,49 @@ def mail():
 
     while True:
         M_val = mainTop.printTop()
-        log.debag('main(Mval:%s)'%M_val)
+        log.DEBUG('main(Mval:%s)'%M_val)
 
         # 新規登録
         if M_val == '1':
-            log.info("Swlwct_New")
+            log.INFO("Swlwct_New")
             try:
                 mainTop.UIclean()
                 CLfunction.NewCreate()
                 continue
 
             except:
-                log.errer("Geterrer:L(New)")
+                log.ERRER("Geterrer:L(New)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
 
         # 参照
         elif M_val == '2':
-            log.info("Select_Get")
+            log.INFO("Select_Get")
             try:
                 mainTop.UIclean()
                 CLfunction.SearchUser()
                 continue
 
             except:
-                log.errer("Geterrer:L530(Get)")
+                log.ERRER("Geterrer:L530(Get)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
         # 削除
 
         elif M_val == '3':
-            log.info("Select_Del")
+            log.INFO("Select_Del")
             try:
                 mainTop.UIclean()
                 CLfunction.DeleteUser()
                 continue
 
             except:
-                log.errer("Geterrer:L543(Del)")
+                log.ERRER("Geterrer:L543(Del)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
         # 終了
         elif M_val == '0':
-            log.info("Select_EXIT")
+            log.INFO("Select_EXIT")
             try:
                 result = USERinput.FunctionExit()
                 if result == True:
@@ -792,7 +792,7 @@ def mail():
                     mainTop.UIclean()
                     continue
             except:
-                log.errer("Geterrer:L559(EXIT)")
+                log.ERRER("Geterrer:L559(EXIT)")
                 mainTop.UIclean()
                 print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
                 print("\n\nアプリケーションを終了しました。")
@@ -800,13 +800,13 @@ def mail():
 
         # 入力エラー
         else:
-            log.warning("InputWarning(main:%s)"%M_val)
+            log.WARN("InputWarning(main:%s)"%M_val)
             mainTop.UIclean()
             print("指定と異なる値です。もう一度入れなおしてください。")
             continue
 
 if __name__ == '__main__':
-    log.info("CL_Start")
+    log.INFO("CL_Start")
     mainTop.UIclean()
     mail()
-    log.info("CL_fin")
+    log.INFO("CL_fin")
