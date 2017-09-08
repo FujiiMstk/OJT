@@ -22,23 +22,35 @@ class log:
     logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
     def INFO(INFO, line):
-        logging.info(INFO+line)
+        for spritLine in line:
+            formatLine = formatLine + spritLine
+        logging.info(INFO+formatLine)
 
     def ERROR(INFO, line):
+        for spritLine in line:
+            formatLine = formatLine + spritLine
         logging.error(INFO+line)
 
     def WARN(INFO, line):
+        for spritLine in line:
+            formatLine = formatLine + spritLine
         logging.warning(INFO+line)
 
     def CRIT(INFO, line):
+        for spritLine in line:
+            formatLine = formatLine + spritLine
         logging.critical(INFO+line)
 
     def DEBUG(INFO, line):
+        for spritLine in line:
+            formatLine = formatLine + spritLine
         logging.debug(INFO+line)
 
     def location(depth=0):
         frame = inspect.currentframe().f_back
         return os.path.basename(frame.f_code.co_filename), frame.f_code.co_name, frame.f_lineno
+
+
 
 
 ###データ受け渡しフォルダ確保###
