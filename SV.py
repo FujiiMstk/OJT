@@ -21,20 +21,20 @@ class log:
     #ログ出力#
     logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
-    def INFO(INFO):
-        logging.info(INFO)
+    def INFO(INFO, line):
+        logging.info(INFO+line)
 
-    def ERROR(INFO):
-        logging.error(INFO)
+    def ERROR(INFO, line):
+        logging.error(INFO+line)
 
-    def WARN(INFO):
-        logging.warning(INFO)
+    def WARN(INFO, line):
+        logging.warning(INFO+line)
 
-    def CRIT(INFO):
-        logging.critical(INFO)
+    def CRIT(INFO, line):
+        logging.critical(INFO+line)
 
-    def DEBUG(INFO):
-        logging.debug(INFO)
+    def DEBUG(INFO, line):
+        logging.debug(INFO+line)
 
     def location(depth=0):
         frame = inspect.currentframe().f_back
@@ -61,11 +61,11 @@ class IOcontrol:  # ファイル入出力
 
             if picFName[0] == 'E':
                 f = open('../Fpool/RSL_%s' % picFName, 'w')
-                log.INFO("Create:RSL_%s" % picFName)
+                log.INFO("Create:RSL_%s" % picFName, log.location())
                 f.write("%s" % writeV)
                 f.close()
             elif picFName[0] == '_':
-                log.INFO(os.remove('../Fpool/%s' % picFName))
+                log.INFO(os.remove('../Fpool/%s' % picFName), log.location())
 
 
 
@@ -83,7 +83,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.INFO(os.remove('../Fpool/%s' % FName)) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
+            log.INFO(os.remove('../Fpool/%s' % FName), log.location()) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
 
         return Gret
 
@@ -103,7 +103,7 @@ class IOcontrol:  # ファイル入出力
 
 
 def main():
-    log.INFO("join:main()")
+    log.INFO("join:main()", log.location())
     r = redis.Redis(host='localhost', port=6379, db=15) #Redis接続#
 
     TgFName = 'brank'
@@ -131,67 +131,67 @@ def main():
 
                 #新規登録#
                 if CLreq[0] == '1':
-                    log.INFO("Select1")
+                    log.INFO("Select1", log.location())
 
                     result = r.set(CLreq[1], CLreq[2])
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result), log.location())
 
                     continue
 
 
                 #参照#
                 elif CLreq[0] == '2':
-                    log.INFO("Select2")
+                    log.INFO("Select2", log.location())
 
                     result = r.exists(CLreq[1])
                     #print(result)
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result), log.location())
                     continue
 
 
                 #削除#
                 elif CLreq[0] == '3':
-                    log.INFO("Select3")
+                    log.INFO("Select3", log.location())
 
                     result = r.delete(CLreq[1])
                     #print(result)
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result), log.location())
                     continue
 
                 #詳細情報を取得#
                 elif CLreq[0] == '4':
-                    log.INFO("Select4")
+                    log.INFO("Select4", log.location())
 
                     result = r.get(CLreq[1])
                     #print(result)
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')), log.location())
                     continue
 
 
                 #登録済みkey取得#
                 elif CLreq[0] == '5':
-                    log.INFO("Select5")
+                    log.INFO("Select5", log.location())
 
                     result = r.keys(CLreq[1])
                     #print(result)
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')))
+                    log.DEBUG(IOcontrol.DExpt(FName, result.decode('utf-8')), log.location())
                     continue
 
                 #終了#
                 elif CLreq[0] == '0':
-                    log.INFO("Select0")
+                    log.INFO("Select0", log.location())
 
                     result = "shutdown"
                     #print(result)
 
-                    log.DEBUG(IOcontrol.DExpt(FName, result))
+                    log.DEBUG(IOcontrol.DExpt(FName, result), log.location())
                     print("Server Shutdown")
-                    log.INFO("Server Shutdown")
+                    log.INFO("Server Shutdown", log.location())
                     sys.exit()
             else:
                 continue
@@ -200,14 +200,14 @@ def main():
             return  0
 
         else:
-            log.INFO("GetException")
-            log.DEBUG(FName)
-            log.WARN(traceback.format_exc())
+            log.INFO("GetException", log.location())
+            log.DEBUG(FName, log.location())
+            log.WARN(traceback.format_exc(), log.location())
             #traceback.print_exception()
             continue
 
 
 if __name__ == '__main__':
-    log.INFO(log.location()+"Wake SV!:")
+    log.INFO("Wake SV!:", log.location())
     main()
-    log.INFO("See You!")
+    log.INFO("See You!", log.location())
