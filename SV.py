@@ -114,7 +114,6 @@ def main():
         FName = IOcontrol.DSearch()
 
         try:
-            log.INFO("try in")
             if len(FName) == 0: #FName == None:
                 continue
 
@@ -125,8 +124,6 @@ def main():
                     if GetCLreq != None:
                         TgFName = gFName
                         break
-
-            log.INFO(log.location())
 
             if GetCLreq != None:
 
@@ -196,8 +193,8 @@ def main():
                     print("Server Shutdown")
                     log.INFO("Server Shutdown")
                     sys.exit()
-            log.INFO(log.location())
-            continue
+            else:
+                continue
 
         except SystemExit:
             return  0
