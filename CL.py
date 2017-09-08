@@ -1,4 +1,5 @@
 from __future__ import print_function
+import inspect
 import timeout_decorator
 import time
 import sys
@@ -24,20 +25,42 @@ class log:
     #ログ出力#
     logging.basicConfig(filename='./Log/%s_CL.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
-    def info(INFO):
+    #INFOのみ#
+    def INFO(INFO):
         logging.info(INFO)
 
-    def errer(INFO):
+    def ERROR(INFO):
         logging.error(INFO)
 
-    def warning(INFO):
+    def WARN(INFO):
         logging.warning(INFO)
 
-    def critical(INFO):
+    def CRIT(INFO):
         logging.critical(INFO)
 
-    def debag(INFO):
+    def DEBUG(INFO):
         logging.debug(INFO)
+
+    #呼び出し行数を含む#
+    def INFO_Line(INFO, line):
+        logging.info(str(INFO)+"："+line)
+
+    def ERROR_Line(INFO, line):
+        logging.error(str(INFO)+"："+line)
+
+    def WARN_Line(INFO, line):
+        logging.warning(str(INFO)+"："+line)
+
+    def CRIT_Line(INFO, line):
+        logging.critical(str(INFO)+"："+line)
+
+    def DEBUG_Line(INFO, line):
+        logging.debug(str(INFO)+"："+line)
+
+    #呼び出された場所のLineを取得する#
+    def location(depth=0):
+        frame = inspect.currentframe().f_back
+        return ('line[ {0} ]'.format(frame.f_lineno))
 
 
 ###フォルダチェック・入力チェック###
@@ -628,19 +651,14 @@ class mainTop:
             エンターキーを押してください。
             """)
 
-        for wait in range(5):
+        for wait in range(3):
             print("．")
             time.sleep(0.5)
             print("\b\b")
             time.sleep(0.5)
-
+        mainTop.UIclean()
         return 0
 
-        #end_Cnt = input('')
-
-        #if len(end_Cnt) >= 0:
-        #    mainTop.UIclean()
-        #    return 0
 
 
     @timeout_decorator.timeout(MAIN_PROCESS_TIMEOUT)
