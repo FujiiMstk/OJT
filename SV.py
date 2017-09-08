@@ -126,7 +126,7 @@ def main():
                         TgFName = gFName
                         break
 
-            log.INFO("try %s" % log.location())
+            log.INFO(log.location())
 
             if GetCLreq != None:
 
