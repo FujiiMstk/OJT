@@ -190,6 +190,8 @@ def main():
                     log.INFO("Server Shutdown")
                     sys.exit()
 
+                continue
+
         except SystemExit:
             return  0
 
