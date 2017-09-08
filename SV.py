@@ -78,7 +78,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.INFO(os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
+            log.INFO(os.remove('../Fpool/%s' % FName)) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
 
         return Gret
 
@@ -110,7 +110,7 @@ def main():
 
         try:
 
-            if FName == None:
+            if len(FName) == 0: #FName == None:
                 continue
 
             else:
