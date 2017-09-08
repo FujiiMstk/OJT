@@ -6,6 +6,7 @@ import redis
 import sys
 import traceback
 import logging
+import inspect
 
 ###ログ出力用関数###
 class log:
@@ -34,6 +35,10 @@ class log:
 
     def DEBUG(INFO):
         logging.debug(INFO)
+
+    def location(depth=0):
+        frame = inspect.currentframe().f_back
+        return os.path.basename(frame.f_code.co_filename), frame.f_code.co_name, frame.f_lineno
 
 
 ###データ受け渡しフォルダ確保###
@@ -120,6 +125,8 @@ def main():
                     if GetCLreq != None:
                         TgFName = gFName
                         break
+
+            log.INFO("try %s" % log.location())
 
             if GetCLreq != None:
 
