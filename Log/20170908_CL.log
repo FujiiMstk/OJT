@@ -205,3 +205,16 @@
 2017-09-08 10:45:05,448- root - INFO - removed
 2017-09-08 10:45:05,448- root - INFO - fin_InptFile
 2017-09-08 10:45:10,457- root - INFO - CL_fin
+2017-09-08 10:51:00,471- root - INFO - CL_Start
+2017-09-08 10:51:07,766- root - DEBUG - main(Mval:0)
+2017-09-08 10:51:07,766- root - INFO - Select_EXIT
+2017-09-08 10:51:09,638- root - INFO - MakeExptFile
+2017-09-08 10:51:09,638- root - INFO - MadeExptFile
+2017-09-08 10:51:14,646- root - INFO - InptFile
+2017-09-08 10:51:16,647- root - DEBUG - gFName:_Expt_20170908_105109.prf
+2017-09-08 10:51:16,647- root - DEBUG - gFName:.swp
+2017-09-08 10:51:16,647- root - DEBUG - gFName:RSL_Expt_20170908_105109.prf
+2017-09-08 10:51:16,648- root - DEBUG - None
+2017-09-08 10:51:16,648- root - INFO - removed
+2017-09-08 10:51:16,648- root - INFO - fin_InptFile
+2017-09-08 10:51:21,657- root - INFO - CL_fin
