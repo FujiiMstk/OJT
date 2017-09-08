@@ -468,6 +468,7 @@ class USERinput:
             #途中終了/入力チェック#
             if userID == "exit":
                 print("\n\n機能を終了します\n\n")
+
                 sys.exit()
             else:
                 Chres = Checker.InputRule(0, userID)
@@ -627,11 +628,19 @@ class mainTop:
             エンターキーを押してください。
             """)
 
-        end_Cnt = input('')
+        for wait in range(5):
+            print("．")
+            time.sleep(0.5)
+            print("\b\b")
+            time.sleep(0.5)
 
-        if len(end_Cnt) >= 0:
-            mainTop.UIclean()
-            return 0
+        return 0
+
+        #end_Cnt = input('')
+
+        #if len(end_Cnt) >= 0:
+        #    mainTop.UIclean()
+        #    return 0
 
 
     @timeout_decorator.timeout(MAIN_PROCESS_TIMEOUT)
