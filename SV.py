@@ -110,7 +110,7 @@ def main():
 
         try:
 
-            if FName == False:
+            if FName == None:
                 continue
 
             else:
@@ -195,7 +195,7 @@ def main():
 
         else:
             log.INFO("GetException")
-            log.WARN(traceback.print_exc())
+            log.WARN(traceback.print_exception())
             continue
 
 
