@@ -814,3 +814,34 @@
 2017-09-08 11:14:53,599- root - DEBUG - None
 2017-09-08 11:14:53,599- root - INFO - Server Shutdown
 2017-09-08 11:14:53,599- root - INFO - See You!
+2017-09-08 11:18:33,251- root - INFO - Wake SV!
+2017-09-08 11:18:33,252- root - INFO - join:main()
+2017-09-08 11:18:34,253- root - INFO - try in
+2017-09-08 11:18:34,253- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:34,253- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:35,254- root - INFO - try in
+2017-09-08 11:18:35,254- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:35,254- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:36,255- root - INFO - try in
+2017-09-08 11:18:36,256- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:36,256- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:37,257- root - INFO - try in
+2017-09-08 11:18:37,257- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:37,257- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:38,258- root - INFO - try in
+2017-09-08 11:18:38,258- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:38,259- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:39,260- root - INFO - try in
+2017-09-08 11:18:39,260- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:39,260- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:40,261- root - INFO - try in
+2017-09-08 11:18:40,262- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:40,262- root - INFO - ('SV.py', 'main', 199)
+2017-09-08 11:18:41,263- root - INFO - try in
+2017-09-08 11:18:41,263- root - INFO - None
+2017-09-08 11:18:41,264- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:18:41,264- root - INFO - Select0
+2017-09-08 11:18:41,264- root - INFO - Create:RSL_Expt_20170908_111841.prf
+2017-09-08 11:18:41,264- root - DEBUG - None
+2017-09-08 11:18:41,264- root - INFO - Server Shutdown
+2017-09-08 11:18:41,264- root - INFO - See You!
