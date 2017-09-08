@@ -471,11 +471,11 @@ class USERinput:
                continue
 
             ##SVconnect#引数で照会/削除指定の関数作成
-            if userID == "*":
-                IOcontrol.DExpt(5, userID)
-            elif userID == "exit":
+            if userID == "exit":
                 print("\n\n機能を終了します\n\n")
                 sys.exit()
+            elif userID == "*":
+                IOcontrol.DExpt(5, userID)
             else:
                 IOcontrol.DExpt(2, userID)
 
