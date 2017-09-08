@@ -526,3 +526,32 @@
 2017-09-08 10:11:12,256- root - INFO - Wake SV!
 2017-09-08 10:11:12,256- root - INFO - join:main()
 2017-09-08 10:11:13,258- root - INFO - GetException
+2017-09-08 10:20:52,404- root - INFO - Wake SV!
+2017-09-08 10:20:52,404- root - INFO - join:main()
+2017-09-08 10:20:53,405- root - INFO - GetException
+2017-09-08 10:28:46,746- root - INFO - Wake SV!
+2017-09-08 10:28:46,746- root - INFO - join:main()
+2017-09-08 10:28:47,748- root - INFO - GetException
+2017-09-08 10:28:47,748- root - WARNING - NoneType
+
+2017-09-08 10:28:48,749- root - INFO - GetException
+2017-09-08 10:28:48,749- root - WARNING - NoneType
+
+2017-09-08 10:28:49,751- root - INFO - GetException
+2017-09-08 10:28:49,751- root - WARNING - NoneType
+
+2017-09-08 10:28:50,752- root - INFO - GetException
+2017-09-08 10:28:50,752- root - WARNING - NoneType
+
+2017-09-08 10:28:51,754- root - INFO - GetException
+2017-09-08 10:28:51,754- root - WARNING - NoneType
+
+2017-09-08 10:28:52,756- root - INFO - GetException
+2017-09-08 10:28:52,756- root - WARNING - NoneType
+
+2017-09-08 10:28:53,757- root - INFO - None
+2017-09-08 10:28:53,757- root - INFO - Select0
+2017-09-08 10:28:53,758- root - INFO - Create:RSL_Expt_20170908_102853.prf
+2017-09-08 10:28:53,758- root - DEBUG - None
+2017-09-08 10:28:53,758- root - INFO - Server Shutdown
+2017-09-08 10:28:53,758- root - INFO - See You!

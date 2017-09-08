@@ -166,3 +166,17 @@
 2017-09-08 10:11:47,419- root - DEBUG - gFName:.swp
 2017-09-08 10:11:48,400- root - ERROR - Geterrer:L559(EXIT)
 2017-09-08 10:11:48,403- root - INFO - CL_fin
+2017-09-08 10:20:52,359- root - INFO - CL_Start
+2017-09-08 10:28:46,699- root - INFO - CL_Start
+2017-09-08 10:28:51,022- root - DEBUG - main(Mval:0)
+2017-09-08 10:28:51,022- root - INFO - Select_EXIT
+2017-09-08 10:28:53,104- root - INFO - MakeExptFile
+2017-09-08 10:28:53,104- root - INFO - MadeExptFile
+2017-09-08 10:28:58,115- root - INFO - InptFile
+2017-09-08 10:29:00,117- root - DEBUG - gFName:_Expt_20170908_102853.prf
+2017-09-08 10:29:00,117- root - DEBUG - gFName:.swp
+2017-09-08 10:29:00,117- root - DEBUG - gFName:RSL_Expt_20170908_102853.prf
+2017-09-08 10:29:00,118- root - DEBUG - None
+2017-09-08 10:29:00,118- root - INFO - removed
+2017-09-08 10:29:00,118- root - INFO - fin_InptFile
+2017-09-08 10:29:05,127- root - INFO - CL_fin
