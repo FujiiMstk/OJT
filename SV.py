@@ -208,6 +208,6 @@ def main():
 
 
 if __name__ == '__main__':
-    log.INFO("Wake SV!:"+log.location())
+    log.INFO(log.location()+"Wake SV!:")
     main()
     log.INFO("See You!")
