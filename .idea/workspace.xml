@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="466b6b56-3b4b-4559-baa3-8fc2b15176fc" name="デフォルト" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CL.py" afterPath="$PROJECT_DIR$/CL.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SV.py" afterPath="$PROJECT_DIR$/SV.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CL.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CL.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CL.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="673">
@@ -25,11 +26,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SV.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="20170908_CL.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Log/20170908_CL.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="-259">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20170908_SV.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Log/20170908_SV.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="-6498">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SV.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+            <state relative-caret-position="673">
+              <caret line="197" column="38" lean-forward="false" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -58,8 +77,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/SV.py" />
         <option value="$PROJECT_DIR$/CL.py" />
+        <option value="$PROJECT_DIR$/SV.py" />
       </list>
     </option>
   </component>
@@ -368,20 +387,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SV.py">
+    <entry file="file://$PROJECT_DIR$/CL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="57" column="20" lean-forward="false" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+        <state relative-caret-position="673">
+          <caret line="636" column="16" lean-forward="false" selection-start-line="636" selection-start-column="16" selection-end-line="636" selection-end-column="16" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CL.py">
+    <entry file="file://$PROJECT_DIR$/Log/20170908_CL.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-259">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log/20170908_SV.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-6498">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SV.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
-          <caret line="636" column="16" lean-forward="false" selection-start-line="636" selection-start-column="16" selection-end-line="636" selection-end-column="16" />
+          <caret line="197" column="38" lean-forward="false" selection-start-line="197" selection-start-column="38" selection-end-line="197" selection-end-column="38" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
