@@ -765,3 +765,52 @@
 2017-09-08 11:02:49,362- root - DEBUG - None
 2017-09-08 11:02:49,362- root - INFO - Server Shutdown
 2017-09-08 11:02:49,362- root - INFO - See You!
+2017-09-08 11:12:18,544- root - INFO - Wake SV!
+2017-09-08 11:12:18,544- root - INFO - join:main()
+2017-09-08 11:12:19,545- root - INFO - try in
+2017-09-08 11:14:46,585- root - INFO - Wake SV!
+2017-09-08 11:14:46,585- root - INFO - join:main()
+2017-09-08 11:14:47,586- root - INFO - try in
+2017-09-08 11:14:47,587- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:47,587- root - INFO - GetException
+2017-09-08 11:14:47,587- root - DEBUG - ['.swp']
+2017-09-08 11:14:47,587- root - WARNING - NoneType
+
+2017-09-08 11:14:48,588- root - INFO - try in
+2017-09-08 11:14:48,588- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:48,589- root - INFO - GetException
+2017-09-08 11:14:48,589- root - DEBUG - ['.swp']
+2017-09-08 11:14:48,589- root - WARNING - NoneType
+
+2017-09-08 11:14:49,590- root - INFO - try in
+2017-09-08 11:14:49,590- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:49,590- root - INFO - GetException
+2017-09-08 11:14:49,590- root - DEBUG - ['.swp']
+2017-09-08 11:14:49,591- root - WARNING - NoneType
+
+2017-09-08 11:14:50,592- root - INFO - try in
+2017-09-08 11:14:50,592- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:50,592- root - INFO - GetException
+2017-09-08 11:14:50,592- root - DEBUG - ['.swp']
+2017-09-08 11:14:50,592- root - WARNING - NoneType
+
+2017-09-08 11:14:51,594- root - INFO - try in
+2017-09-08 11:14:51,594- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:51,594- root - INFO - GetException
+2017-09-08 11:14:51,594- root - DEBUG - ['.swp']
+2017-09-08 11:14:51,594- root - WARNING - NoneType
+
+2017-09-08 11:14:52,596- root - INFO - try in
+2017-09-08 11:14:52,596- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:52,596- root - INFO - GetException
+2017-09-08 11:14:52,596- root - DEBUG - ['.swp']
+2017-09-08 11:14:52,596- root - WARNING - NoneType
+
+2017-09-08 11:14:53,598- root - INFO - try in
+2017-09-08 11:14:53,598- root - INFO - None
+2017-09-08 11:14:53,598- root - INFO - ('SV.py', 'main', 129)
+2017-09-08 11:14:53,598- root - INFO - Select0
+2017-09-08 11:14:53,599- root - INFO - Create:RSL_Expt_20170908_111452.prf
+2017-09-08 11:14:53,599- root - DEBUG - None
+2017-09-08 11:14:53,599- root - INFO - Server Shutdown
+2017-09-08 11:14:53,599- root - INFO - See You!
