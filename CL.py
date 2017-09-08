@@ -465,16 +465,18 @@ class USERinput:
             EvCount+=1
             userID = input("ユーザIDを入力してください>>")
 
-            Chres = Checker.InputRule(0, userID)
-            print(Chres)
-            if Chres == False:
-               continue
-
-            ##SVconnect#引数で照会/削除指定の関数作成
+            #途中終了/入力チェック#
             if userID == "exit":
                 print("\n\n機能を終了します\n\n")
                 sys.exit()
-            elif userID == "*":
+            else:
+                Chres = Checker.InputRule(0, userID)
+                print(Chres)
+                if Chres == False:
+                    continue
+
+            ##SVconnect#引数で照会/削除指定の関数作成
+            if userID == "*":
                 IOcontrol.DExpt(5, userID)
             else:
                 IOcontrol.DExpt(2, userID)
