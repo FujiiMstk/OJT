@@ -555,3 +555,92 @@
 2017-09-08 10:28:53,758- root - DEBUG - None
 2017-09-08 10:28:53,758- root - INFO - Server Shutdown
 2017-09-08 10:28:53,758- root - INFO - See You!
+2017-09-08 10:32:29,447- root - INFO - Wake SV!
+2017-09-08 10:32:29,448- root - INFO - join:main()
+2017-09-08 10:32:30,449- root - INFO - GetException
+2017-09-08 10:32:30,449- root - WARNING - NoneType
+
+2017-09-08 10:32:31,450- root - INFO - GetException
+2017-09-08 10:32:31,450- root - WARNING - NoneType
+
+2017-09-08 10:32:32,452- root - INFO - GetException
+2017-09-08 10:32:32,452- root - WARNING - NoneType
+
+2017-09-08 10:32:33,454- root - INFO - GetException
+2017-09-08 10:32:33,454- root - WARNING - NoneType
+
+2017-09-08 10:32:34,455- root - INFO - GetException
+2017-09-08 10:32:34,456- root - WARNING - NoneType
+
+2017-09-08 10:32:35,458- root - INFO - GetException
+2017-09-08 10:32:35,458- root - WARNING - NoneType
+
+2017-09-08 10:32:36,459- root - INFO - GetException
+2017-09-08 10:32:36,460- root - WARNING - NoneType
+
+2017-09-08 10:32:37,461- root - INFO - GetException
+2017-09-08 10:32:37,462- root - WARNING - NoneType
+
+2017-09-08 10:32:38,463- root - INFO - GetException
+2017-09-08 10:32:38,464- root - WARNING - NoneType
+
+2017-09-08 10:32:39,465- root - INFO - GetException
+2017-09-08 10:32:39,466- root - WARNING - NoneType
+
+2017-09-08 10:32:40,467- root - INFO - None
+2017-09-08 10:32:40,468- root - INFO - Select0
+2017-09-08 10:32:40,468- root - INFO - Create:RSL_Expt_20170908_103240.prf
+2017-09-08 10:32:40,468- root - INFO - None
+2017-09-08 10:32:40,468- root - DEBUG - None
+2017-09-08 10:32:40,468- root - INFO - Server Shutdown
+2017-09-08 10:32:40,469- root - INFO - See You!
+2017-09-08 10:34:00,448- root - INFO - Wake SV!
+2017-09-08 10:34:00,448- root - INFO - join:main()
+2017-09-08 10:34:01,449- root - INFO - GetException
+2017-09-08 10:34:01,450- root - WARNING - NoneType
+
+2017-09-08 10:44:49,095- root - INFO - Wake SV!
+2017-09-08 10:44:49,095- root - INFO - join:main()
+2017-09-08 10:44:50,096- root - INFO - GetException
+2017-09-08 10:44:50,097- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:50,097- root - WARNING - NoneType
+
+2017-09-08 10:44:51,098- root - INFO - GetException
+2017-09-08 10:44:51,098- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:51,098- root - WARNING - NoneType
+
+2017-09-08 10:44:52,100- root - INFO - GetException
+2017-09-08 10:44:52,100- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:52,100- root - WARNING - NoneType
+
+2017-09-08 10:44:53,101- root - INFO - GetException
+2017-09-08 10:44:53,102- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:53,102- root - WARNING - NoneType
+
+2017-09-08 10:44:54,103- root - INFO - GetException
+2017-09-08 10:44:54,104- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:54,104- root - WARNING - NoneType
+
+2017-09-08 10:44:55,105- root - INFO - GetException
+2017-09-08 10:44:55,105- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:55,106- root - WARNING - NoneType
+
+2017-09-08 10:44:56,107- root - INFO - GetException
+2017-09-08 10:44:56,107- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:56,107- root - WARNING - NoneType
+
+2017-09-08 10:44:57,108- root - INFO - GetException
+2017-09-08 10:44:57,109- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:57,109- root - WARNING - NoneType
+
+2017-09-08 10:44:58,110- root - INFO - GetException
+2017-09-08 10:44:58,110- root - DEBUG - ['.swp', '_Expt_20170908_103240.prf']
+2017-09-08 10:44:58,110- root - WARNING - NoneType
+
+2017-09-08 10:44:59,112- root - INFO - None
+2017-09-08 10:44:59,112- root - INFO - Select0
+2017-09-08 10:44:59,113- root - INFO - Create:RSL_Expt_20170908_104458.prf
+2017-09-08 10:44:59,113- root - INFO - None
+2017-09-08 10:44:59,113- root - DEBUG - None
+2017-09-08 10:44:59,113- root - INFO - Server Shutdown
+2017-09-08 10:44:59,113- root - INFO - See You!
