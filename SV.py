@@ -200,7 +200,7 @@ def main():
             return  0
 
         else:
-            log.INFO("GetException")
+            log.INFO("GetException", log.location())
             log.DEBUG(FName)
             log.WARN(traceback.format_exc())
             #traceback.print_exception()
