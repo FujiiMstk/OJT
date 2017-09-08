@@ -619,7 +619,7 @@ class mainTop:
             # メニューを選択してください #
             #                            #
             # 1:新規登録                 #
-            # 2:会員紹介                 #
+            # 2:会員照会                 #
             # 3:会員情報削除             #
             #                            #
             # 0:終了                     #
@@ -753,7 +753,7 @@ def mail():
                 continue
 
             except:
-                log.ERRER("Geterrer:L(New)")
+                log.ERROR("Geterrer:L(New)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
 
@@ -766,7 +766,7 @@ def mail():
                 continue
 
             except:
-                log.ERRER("Geterrer:L530(Get)")
+                log.ERROR("Geterrer:L530(Get)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
 
@@ -779,7 +779,7 @@ def mail():
                 continue
 
             except:
-                log.ERRER("Geterrer:L543(Del)")
+                log.ERROR("Geterrer:L543(Del)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
 
@@ -800,7 +800,7 @@ def mail():
                     mainTop.UIclean()
                     continue
             except:
-                log.ERRER("Geterrer:L559(EXIT)")
+                log.ERROR("Geterrer:L559(EXIT)")
                 mainTop.UIclean()
                 print("\n\n\n\nサーバの終了を確認できませんでした。\nプロセスを確認し、手動で終了させてください。")
                 print("\n\nアプリケーションを終了しました。")
