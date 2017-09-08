@@ -846,3 +846,14 @@
 =======
 >>>>>>> 8d8307f196783bd940162d9162ed380494ae5ab4
 >>>>>>> 74abd3b0da84e1b16f4e22bbf8e4fbe5c05b00f6
+2017-09-06 16:55:32,110- root - INFO - SV_wake
+2017-09-06 16:55:33,111- root - INFO - GetException
+2017-09-06 16:55:34,113- root - INFO - GetException
+2017-09-06 16:55:35,115- root - INFO - GetException
+2017-09-06 16:55:36,116- root - INFO - GetException
+2017-09-06 16:55:37,119- root - INFO - None
+2017-09-06 16:55:37,119- root - INFO - Select0
+2017-09-06 16:55:37,119- root - INFO - None
+2017-09-06 16:55:37,119- root - INFO - Create:RSL_Expt_20170906_165536.prf
+2017-09-06 16:55:37,120- root - DEBUG - None
+2017-09-06 16:55:37,120- root - INFO - Server Shutdown
