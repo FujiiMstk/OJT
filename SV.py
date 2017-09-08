@@ -104,7 +104,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.INFO(os.remove('../Fpool/%s' % FName)) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
+            log.INFO(os.remove('../Fpool/%s' % FName))
 
         return Gret
 
