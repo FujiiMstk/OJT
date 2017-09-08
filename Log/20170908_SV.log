@@ -741,3 +741,27 @@
 2017-09-08 10:59:23,285- root - DEBUG - None
 2017-09-08 10:59:23,286- root - INFO - Server Shutdown
 2017-09-08 10:59:23,286- root - INFO - See You!
+2017-09-08 11:02:45,354- root - INFO - Wake SV!
+2017-09-08 11:02:45,354- root - INFO - join:main()
+2017-09-08 11:02:46,356- root - INFO - try in
+2017-09-08 11:02:46,356- root - INFO - GetException
+2017-09-08 11:02:46,356- root - DEBUG - ['.swp']
+2017-09-08 11:02:46,356- root - WARNING - NoneType
+
+2017-09-08 11:02:47,358- root - INFO - try in
+2017-09-08 11:02:47,358- root - INFO - GetException
+2017-09-08 11:02:47,358- root - DEBUG - ['.swp']
+2017-09-08 11:02:47,358- root - WARNING - NoneType
+
+2017-09-08 11:02:48,359- root - INFO - try in
+2017-09-08 11:02:48,359- root - INFO - GetException
+2017-09-08 11:02:48,360- root - DEBUG - ['.swp']
+2017-09-08 11:02:48,360- root - WARNING - NoneType
+
+2017-09-08 11:02:49,361- root - INFO - try in
+2017-09-08 11:02:49,361- root - INFO - None
+2017-09-08 11:02:49,361- root - INFO - Select0
+2017-09-08 11:02:49,362- root - INFO - Create:RSL_Expt_20170908_110249.prf
+2017-09-08 11:02:49,362- root - DEBUG - None
+2017-09-08 11:02:49,362- root - INFO - Server Shutdown
+2017-09-08 11:02:49,362- root - INFO - See You!
