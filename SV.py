@@ -4,7 +4,7 @@ import os
 import time
 import redis
 import sys
-
+import traceback
 import logging
 
 ###ログ出力用関数###
@@ -195,7 +195,7 @@ def main():
 
         else:
             log.INFO("GetException")
-            log.WARN(sys.exc_traceback)
+            log.WARN(traceback.print_exc())
             continue
 
 
