@@ -32,25 +32,25 @@ class log:
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.error(INFO+line)
+        logging.error(INFO+formatLine)
 
     def WARN(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.warning(INFO+line)
+        logging.warning(INFO+formatLine)
 
     def CRIT(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.critical(INFO+line)
+        logging.critical(INFO+formatLine)
 
     def DEBUG(INFO, line):
         formatLine = ""
         for spritLine in line:
             formatLine = formatLine + "%s"%(spritLine,)
-        logging.debug(INFO+line)
+        logging.debug(INFO+formatLine)
 
     def location(depth=0):
         frame = inspect.currentframe().f_back
