@@ -21,6 +21,8 @@ class log:
     #ログ出力#
     logging.basicConfig(filename='./Log/%s_SV.log'%t.strftime("%Y%m%d"), format=logF, level=logging.DEBUG)
 
+    formatLine = None
+
     def INFO(INFO, line):
         for spritLine in line:
             formatLine = formatLine + spritLine
