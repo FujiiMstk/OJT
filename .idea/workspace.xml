@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="466b6b56-3b4b-4559-baa3-8fc2b15176fc" name="デフォルト" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CL.py" afterPath="$PROJECT_DIR$/CL.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SV.py" afterPath="$PROJECT_DIR$/SV.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CL.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CL.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CL.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="649">
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SV.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SV.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="59" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state relative-caret-position="-1410">
+              <caret line="106" column="53" lean-forward="false" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -63,12 +63,14 @@
       <find>InputRule</find>
       <find>log.</find>
       <find>log.debag</find>
+      <find>log.errer</find>
     </findStrings>
     <replaceStrings>
       <replace>debug</replace>
       <replace>INFO(</replace>
       <replace>ERRER(</replace>
       <replace>DEBUG(</replace>
+      <replace>log.ERRER</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -79,8 +81,8 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Log/20170908_SV.log" />
-        <option value="$PROJECT_DIR$/SV.py" />
         <option value="$PROJECT_DIR$/CL.py" />
+        <option value="$PROJECT_DIR$/SV.py" />
       </list>
     </option>
   </component>
@@ -403,20 +405,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SV.py">
+    <entry file="file://$PROJECT_DIR$/CL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="649">
+          <caret line="770" column="39" lean-forward="true" selection-start-line="770" selection-start-column="39" selection-end-line="770" selection-end-column="39" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CL.py">
+    <entry file="file://$PROJECT_DIR$/SV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="770" column="39" lean-forward="true" selection-start-line="770" selection-start-column="39" selection-end-line="770" selection-end-column="39" />
+        <state relative-caret-position="-1410">
+          <caret line="106" column="53" lean-forward="false" selection-start-line="106" selection-start-column="53" selection-end-line="106" selection-end-column="53" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>

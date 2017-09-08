@@ -82,11 +82,11 @@ class IOcontrol:  # ファイル入出力
 
             if picFName[0] == 'E':
                 f = open('../Fpool/RSL_%s' % picFName, 'w')
-                log.INFO("Create:RSL_%s" % picFName, log.location())
+                log.INFO("Create:RSL_%s" % picFName)
                 f.write("%s" % writeV)
                 f.close()
             elif picFName[0] == '_':
-                log.INFO(os.remove('../Fpool/%s' % picFName), log.location())
+                log.INFO(os.remove('../Fpool/%s' % picFName))
 
 
 
@@ -104,7 +104,7 @@ class IOcontrol:  # ファイル入出力
 
             f.close()
 
-            log.INFO(os.remove('../Fpool/%s' % FName), log.location()) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
+            log.INFO(os.remove('../Fpool/%s' % FName)) #os.rename('../Fpool/%s' % FName, '../Fpool/_%s' % FName))
 
         return Gret
 
