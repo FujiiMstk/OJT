@@ -427,3 +427,6 @@
 2017-09-08 09:29:03,450- root - DEBUG - None
 2017-09-08 09:29:03,450- root - INFO - Server Shutdown
 2017-09-08 09:29:03,451- root - INFO - See You!
+2017-09-08 09:59:30,342- root - INFO - Wake SV!
+2017-09-08 09:59:30,342- root - INFO - join:main()
+2017-09-08 09:59:31,344- root - INFO - GetException
