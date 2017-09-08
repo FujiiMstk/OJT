@@ -23,33 +23,35 @@ class log:
 
 
     def INFO(INFO, line):
-        formatLine = ""
-        for spritLine in line:
-            formatLine = formatLine + "%s"%(spritLine,)
+        formatLine = (' systemfile[{0}], modulename<{1}>, line[{2}]'.format(line[0], line[1], line[2]))
+#        for spritLine in line:
+#            formatLine = formatLine + "%s"%(spritLine,)
         logging.info(str(INFO)+formatLine)
 
     def ERROR(INFO, line):
-        formatLine = ""
-        for spritLine in line:
-            formatLine = formatLine + "%s"%(spritLine,)
+        formatLine = (' systemfile[{0}], modulename<{1}>, line[{2}]'.format(line[0], line[1], line[2]))
+#        for spritLine in line:
+#            formatLine = formatLine + "%s"%(spritLine,)
         logging.error(str(INFO)+formatLine)
 
     def WARN(INFO, line):
-        formatLine = ""
-        for spritLine in line:
-            formatLine = formatLine + "%s"%(spritLine,)
+        formatLine = (' systemfile[{0}], modulename<{1}>, line[{2}]'.format(line[0], line[1], line[2]))
+#        for spritLine in line:
+#            formatLine = formatLine + "%s"%(spritLine,)
         logging.warning(str(INFO)+formatLine)
 
     def CRIT(INFO, line):
-        formatLine = ""
-        for spritLine in line:
-            formatLine = formatLine + "%s"%(spritLine,)
+        formatLine = (' systemfile[{0}], modulename<{1}>, line[{2}]'.format(line[0], line[1], line[2]))
+
+        # for spritLine in line:
+        #     formatLine = formatLine + "%s"%(spritLine,)
         logging.critical(str(INFO)+formatLine)
 
     def DEBUG(INFO, line):
-        formatLine = ""
-        for spritLine in line:
-            formatLine = formatLine + "%s"%(spritLine,)
+        formatLine = (' systemfile[{0}], modulename<{1}>, line[{2}]'.format(line[0], line[1], line[2]))
+
+        # for spritLine in line:
+        #     formatLine = formatLine + "%s"%(spritLine,)
         logging.debug(str(INFO)+formatLine)
 
     def location(depth=0):
