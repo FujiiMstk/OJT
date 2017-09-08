@@ -58,17 +58,11 @@ class log:
         frame = inspect.currentframe().f_back
         return ('line[ {0} ]'.format(frame.f_lineno))
 
-
-
-
-
 ###データ受け渡しフォルダ確保###
 class Checker:
     def EIforderCheck():
         if os.path.exists("../Fpool") == False:
             os.mkdir("../Fpool")
-
-
 
 ###データ受け渡し###
 class IOcontrol:  # ファイル入出力
@@ -122,7 +116,7 @@ class IOcontrol:  # ファイル入出力
         else:
             return SearchFile  # [0]
 
-
+###メイン関数###
 def main():
     log.INFO("join:main()")
     r = redis.Redis(host='localhost', port=6379, db=15) #Redis接続#
@@ -132,7 +126,7 @@ def main():
     while True:
         time.sleep(1)   #CPU負荷軽減措置#
         FName = IOcontrol.DSearch()
-        log.DEBUG_Line(FName, log.location())
+        # log.DEBUG_Line(FName, log.location()) #ファイル取得状況確認用ログ
 
         try:
             if len(FName) == 0: #FName == None:
@@ -141,12 +135,13 @@ def main():
             else:
                 for gFName in FName:
                     GetCLreq = IOcontrol.DInpt(gFName)
-                    log.DEBUG_Line(GetCLreq, log.location())
+                    # log.DEBUG_Line(GetCLreq, log.location())  #ファイル取得状況確認用ログ
 
                     if GetCLreq != None:
                         TgFName = gFName
                         break
 
+            ###機能振り分け###
             if GetCLreq != None:
 
                 CLreq = GetCLreq.split()
@@ -218,7 +213,7 @@ def main():
             else:
                 continue
 
-        except SystemExit:
+        except SystemExit:  #アプリケーション終了#
             return  0
 
         else:

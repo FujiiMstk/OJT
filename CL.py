@@ -230,9 +230,8 @@ class Checker:
 
 class IOcontrol:  # ファイル入出力
 
-    # Fname = ""
-
-    def DExpt(func, writeV):  # ファイル出力
+    # ファイル出力
+    def DExpt(func, writeV):
         log.INFO("MakeExptFile")
 
         Checker.EIforderCheck()
@@ -251,7 +250,8 @@ class IOcontrol:  # ファイル入出力
 
         return Pdate
 
-    def DInpt():  # ファイル読込み
+    # ファイル読込み
+    def DInpt():
         log.INFO("InptFile")
 
         Checker.EIforderCheck()
@@ -282,7 +282,8 @@ class IOcontrol:  # ファイル入出力
 
                 return Gret
 
-    def DSearch():#データ格納先確認#
+    # データ格納先確認#
+    def DSearch():
 
         Checker.EIforderCheck()
 
@@ -480,7 +481,7 @@ class CLfunction:
 
 # ユーザ入力#
 class USERinput:
-    #ID確認#
+    #ID入力要求#
     def inputID(func):
         EvCount = 0
 
@@ -610,6 +611,7 @@ class USERinput:
 
 # 画面表示
 class mainTop:
+    #トップメニュー#
     def printTop():
         print("""
 
@@ -628,6 +630,7 @@ class mainTop:
 
         return sl_Menu
 
+    #終了処理#
     def printFin():
         mainTop.UIclean()
 
@@ -659,12 +662,12 @@ class mainTop:
         mainTop.UIclean()
         return 0
 
-
-
+    #SV終了確認#
     @timeout_decorator.timeout(MAIN_PROCESS_TIMEOUT)
     def SVclose():
         return  IOcontrol.DInpt()
 
+    #新規登録メニュー#
     def CreateTop():
         print("""
             ユーザの新規登録を行います。
@@ -685,6 +688,7 @@ class mainTop:
             ################################################################
             """)
 
+    #参照メニュー#
     def SearchTop():
         print("""
             ユーザの検索を行います。
@@ -699,6 +703,7 @@ class mainTop:
             ################################################################
             """)
 
+    #削除メニュー#
     def DeleteTop():
         print("""
             ユーザの削除を行います。
@@ -713,6 +718,7 @@ class mainTop:
             ################################################################
             """)
 
+    #中断案内#
     def BreakEvent():
         print("""
 
@@ -723,6 +729,7 @@ class mainTop:
 
         """)
 
+    #UI クリア#
     def UIclean():  ###見た目きれいに###
         if os.name == 'posix':  ###LINUX用###
             subprocess.call('clear', shell=True)
@@ -730,7 +737,7 @@ class mainTop:
             subprocess.call('cls', shell=True)
         print()
 
-
+###メイン関数###
 def mail():
 
     while True:
@@ -762,8 +769,8 @@ def mail():
                 log.ERRER("Geterrer:L530(Get)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
-        # 削除
 
+        # 削除
         elif M_val == '3':
             log.INFO("Select_Del")
             try:
@@ -775,6 +782,7 @@ def mail():
                 log.ERRER("Geterrer:L543(Del)")
                 mainTop.UIclean()
                 #mainTop.BreakEvent()
+
         # 終了
         elif M_val == '0':
             log.INFO("Select_EXIT")
